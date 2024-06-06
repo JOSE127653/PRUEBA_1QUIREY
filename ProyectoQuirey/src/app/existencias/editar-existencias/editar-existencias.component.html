@@ -1,0 +1,68 @@
+<h1 mat-dialog-title class="titulo">Editar Existencia</h1>
+<div mat-dialog-content class="mat-dialog-grid">
+  <!-- Fila para el formulario -->
+  <div class="mat-dialog-row">
+    <!-- Opciones de formulario -->
+
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>Codigo</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el Codigo"
+          [(ngModel)]="departamento.Codigo"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+        <mat-label>IdAlmacen</mat-label>
+        <input matInput type="number" placeholder="Ingresa el IdAlmacen" [(ngModel)]="departamento.IdAlmacen">
+      </mat-form-field> -->
+
+      <!-- lista -->
+      <mat-label>IdAlmacen</mat-label>
+      <select
+        [(ngModel)]="idalmaceneslistDepartamento"
+        (change)="selectChangealmacenes()"
+      >
+        <option *ngFor="let item of almacenes" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+
+      <mat-form-field>
+        <mat-label>Cantidad</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa la Cantidad"
+          [(ngModel)]="departamento.Cantidad"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+        <mat-label>Estatus</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el Estatus"
+          [(ngModel)]="departamento.Estatus"
+          step="1"
+          required
+          aria-required="true"
+        />
+      </mat-form-field> -->
+    </div>
+  </div>
+
+  <!-- Opciones botones-->
+</div>
+<div mat-dialog-actions>
+  <button class="cancelar" mat-button (click)="onNoClick()">Cancelar</button>
+  <button class="guardar" mat-button (click)="guardar()">
+    Guardar Cambios
+  </button>
+</div>

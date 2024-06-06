@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>Nuevo tickets</h1>
+<div mat-dialog-content class="mat-dialog-grid">
+  <!-- Fila para el formulario -->
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>categoria</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa "
+          [(ngModel)]="tickets.categoria"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>usuario</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa "
+          [(ngModel)]="tickets.Usuario"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <!-- Opciones botones-->
+</div>
+<div mat-dialog-actions>
+  <button class="cancelar" mat-button (click)="onNoClick()">Cancelar</button>
+  <button class="guardar" mat-button (click)="guardar()">
+    Guardar Cambios
+  </button>
+</div>

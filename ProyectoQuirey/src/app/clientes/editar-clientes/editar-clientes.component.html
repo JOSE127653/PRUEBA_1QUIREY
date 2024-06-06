@@ -1,0 +1,63 @@
+<h1 mat-dialog-title class="titulo">Editar Cliente</h1>
+<div mat-dialog-content class="mat-dialog-grid">
+  <!-- Fila para el formulario -->
+  <div class="mat-dialog-row">
+    <!-- Opciones de formulario -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el nombre"
+          [(ngModel)]="clientes.Nombre"
+          name="nombre"
+          required
+          aria-required="true"
+        />
+        <mat-error *ngIf="!clientes.Nombre">Nombre es requerido</mat-error>
+        <!-- Muestra este mensaje de error si el campo está vacío -->
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Direccion</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa la Direccion"
+          [(ngModel)]="clientes.Direccion"
+          name="direccion"
+          required
+          aria-required="true"
+        />
+        <mat-error *ngIf="!clientes.Direccion"
+          >Dirección es requerida</mat-error
+        >
+        <!-- Muestra este mensaje de error si el campo está vacío -->
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>UsuarioActualiza</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el UsuarioActualiza"
+          [(ngModel)]="clientes.UsuarioActualiza"
+          name="usuarioActualiza"
+          required
+          aria-required="true"
+          step="1"
+        />
+        <mat-error *ngIf="!clientes.UsuarioActualiza"
+          >Usuario Actualiza es requerido</mat-error
+        >
+        <!-- Muestra este mensaje de error si el campo está vacío -->
+      </mat-form-field>
+    </div>
+  </div>
+  <!-- Opciones botones-->
+</div>
+<div mat-dialog-actions>
+  <button class="cancelar" mat-button (click)="onNoClick()">Cancelar</button>
+  <button class="guardar" mat-button (click)="guardar()">
+    Guardar Cambios
+  </button>
+</div>

@@ -1,0 +1,46 @@
+<h1 mat-dialog-title class="titulo">Nuevo Puesto</h1>
+<div mat-dialog-content class="mat-dialog-grid">
+  <!-- Fila para el formulario -->
+  <div class="mat-dialog-row">
+    <!-- Opciones de Formulario -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el nombre"
+          [(ngModel)]="nombreDepartamento"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>Usuario</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el Usuario"
+          [(ngModel)]="usuarioDepartamento"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <!-- Opciones botones-->
+</div>
+<div mat-dialog-actions>
+  <button class="cancelar" mat-button cdkFocusInitial (click)="onNoClick()">
+    Cancelar
+  </button>
+  <button class="guardar" mat-button cdkFocusInitial (click)="insertar()">
+    Añadir
+  </button>
+</div>
+

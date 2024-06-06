@@ -1,0 +1,82 @@
+<h1 mat-dialog-title class="titulo">Editar Ticket</h1>
+<div mat-dialog-content class="mat-dialog-grid">
+  <!-- Fila para el formulario -->
+  <div class="mat-dialog-row">
+    <!-- Opciones de formulario -->
+    <div class="mat-dialog-cell">
+      <!-- <mat-form-field>
+        <mat-label>IdSucursal</mat-label>
+        <input matInput type="number" placeholder="Ingresa el IdSucursal" [(ngModel)]="tickets.IdSucursal">
+      </mat-form-field> -->
+
+      <!-- lista -->
+      <h1></h1>
+      <h1></h1>
+      <mat-label class="LisLebel">IdSucursal</mat-label>
+      <select
+        class="ListaDes"
+        [(ngModel)]="idsucursalsedelistDepartamento"
+        required
+        aria-required="true"
+        (change)="selectChangeSucursales()"
+      >
+        <option *ngFor="let item of sucursales" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+
+      <h1></h1>
+
+      <!-- lista -->
+      <mat-label class="LisLebel">IdCliente</mat-label>
+      <select
+        class="ListaDes"
+        [(ngModel)]="idclienteslistDepartamento"
+        required
+        aria-required="true"
+        (change)="selectChangeClientes()"
+      >
+        <option *ngFor="let item of clientes" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+
+      <h1></h1>
+      <h1></h1>
+      <!-- lista -->
+
+      <mat-form-field>
+        <mat-label>IdVendedor</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa la IdVendedor"
+          [(ngModel)]="tickets.IdVendedor"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+
+      <!-- lista -->
+      <mat-form-field>
+        <mat-label>UsuarioActualiza</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el UsuarioActualiza"
+          [(ngModel)]="tickets.UsuarioActualiza"
+          required
+          aria-required="true"
+          step="1"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <!-- Opciones botones-->
+</div>
+<div mat-dialog-actions>
+  <button class="cancelar" mat-button (click)="onNoClick()">Cancelar</button>
+  <button class="guardar" mat-button (click)="guardar()">
+    Guardar Cambios
+  </button>
+</div>

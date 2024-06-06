@@ -1,0 +1,107 @@
+<h1 mat-dialog-title class="titulo">Nuevo Ticket</h1>
+<div mat-dialog-content class="mat-dialog-grid">
+  <!-- Fila para el formulario -->
+
+  <!-- <div class="mat-dialog-row"> -->
+  <!-- Opciones de Formulario -->
+
+  <!-- <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>IdSucursal</mat-label>
+        <input matInput placeholder="Ingresa el IdSucursal" [(ngModel)]="IdSucursal">
+      </mat-form-field>
+    </div> -->
+  <!-- </div> -->
+
+  <!-- lista -->
+  <h1></h1>
+  <mat-label class="LisLebel">Sucursales</mat-label>
+  <select
+    class="ListaDes"
+    name="my-select"
+    [(ngModel)]="idsucursalsedeDepartamento"
+    required
+    aria-required="true"
+    (change)="selectChange()"
+    [@dropDownAnimation]
+  >
+    <option *ngFor="let item of users" [value]="item.Id" [@dropDownAnimation]>
+      {{ item.Nombre }}
+    </option>
+  </select>
+  <!-- lista -->
+
+  <!-- <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+  <!-- <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>IdCliente</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el IdCliente"
+          [(ngModel)]="idclienteDepartamento"
+        />
+      </mat-form-field>
+    </div> -->
+  <!-- </div> -->
+
+  <!-- lista -->
+  <mat-label class="LisLebel">Clientes</mat-label>
+  <select
+    class="ListaDes"
+    name="my-select"
+    [(ngModel)]="idclientesDepartamento"
+    required
+    aria-required="true"
+    (change)="selectChange1()"
+    [@dropDownAnimation]
+  >
+    <option *ngFor="let item of users1" [value]="item.Id">
+      {{ item.Nombre }}
+    </option>
+  </select>
+
+  <!-- lista -->
+
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>IdVendedor</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el IdVendedor"
+          [(ngModel)]="idvendedorDepartamento"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>UsuarioActualiza</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el UsuarioActualiza"
+          [(ngModel)]="usuarioactualizaDepartamento"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- Opciones botones-->
+</div>
+<div mat-dialog-actions>
+  <button class="cancelar" mat-button cdkFocusInitial (click)="onNoClick()">
+    Cancelar
+  </button>
+  <button class="guardar" mat-button cdkFocusInitial (click)="insertar()">
+    Añadir
+  </button>
+</div>

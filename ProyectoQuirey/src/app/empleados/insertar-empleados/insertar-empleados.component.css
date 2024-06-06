@@ -1,0 +1,68 @@
+.mat-dialog-grid {
+  display: grid;
+  grid-template-columns:
+    repeat
+    auto-fill
+    minmax(400px, 1fr)
+    gap 16px;
+}
+
+.LisLebel {
+  padding-right: 25px;
+  color: black;
+}
+
+.ListaDes {
+  width: 100%;
+  height: 40px;
+  font-size: 20px;
+  transition: all.5s ease-in-out;
+  background-color: white;
+}
+.ListaDes:hover {
+  background-color: rgb(114, 114, 114);
+  transition: all.5s ease-in-out;
+  color: white;
+}
+
+/* Estilo para la animación de despliegue */
+option {
+  display: block;
+}
+
+.mat-dialog-cell {
+  display: grid;
+}
+
+.titulo {
+  margin: auto;
+  font-size: 25px;
+  background: linear-gradient(to right, #8a4910, #ebaa1f);
+  color: aliceblue;
+}
+
+.guardar {
+  background-color: rgb(58, 111, 226);
+  transition: all.5s ease-in-out;
+  color: white;
+}
+
+.cancelar {
+  background-color: rgb(226, 58, 58);
+  transition: all.5s ease-in-out;
+  color: white;
+}
+
+.insertar:hover {
+  transition: all.3s ease-in-out;
+  -webkit-transform: rotate(360deg);
+  -webkit-transform: scale(1.3);
+  transform: scale(1.1);
+}
+
+.guardar:hover {
+  transition: all.3s ease-in-out;
+  -webkit-transform: rotate(360deg);
+  -webkit-transform: scale(1.3);
+  transform: scale(1.1);
+}

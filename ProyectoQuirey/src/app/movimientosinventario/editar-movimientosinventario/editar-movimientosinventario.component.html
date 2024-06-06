@@ -1,0 +1,67 @@
+<h1 mat-dialog-title class="titulo">Editar Movimiento</h1>
+<div mat-dialog-content class="mat-dialog-grid">
+  <!-- Fila para el formulario -->
+  <div class="mat-dialog-row">
+    <!-- Opciones de formulario -->
+
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>IdTipoMov</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el nombre"
+          [(ngModel)]="departamento.IdTipoMov"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>IdAlmacen</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el IdAlmacen"
+          [(ngModel)]="departamento.IdAlmacen"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>UsuarioActualiza</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el UsuarioActualiza"
+          [(ngModel)]="departamento.UsuarioActualiza"
+          step="1"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+        <mat-label>Estatus</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el Estatus"
+          [(ngModel)]="departamento.Estatus"
+          step="1"
+          required
+          aria-required="true"
+        />
+      </mat-form-field> -->
+    </div>
+  </div>
+
+  <!-- Opciones botones-->
+</div>
+<div mat-dialog-actions>
+  <button class="cancelar" mat-button (click)="onNoClick()">Cancelar</button>
+  <button class="guardar" mat-button (click)="guardar()">
+    Guardar Cambios
+  </button>
+</div>

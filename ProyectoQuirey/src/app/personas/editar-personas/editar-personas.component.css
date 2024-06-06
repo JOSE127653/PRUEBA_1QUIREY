@@ -1,0 +1,48 @@
+.mat-dialog-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(400px, 1fr)
+  ); /* ajusta el tamaño mínimo y máximo de las columnas */
+  gap: 16px; /* espacio entre los campos */
+}
+
+.mat-dialog-row {
+  display: contents;
+}
+
+.mat-dialog-cell {
+  display: grid;
+}
+
+.titulo {
+  margin: auto;
+  font-size: 25px;
+  background: linear-gradient(to right, #8a4910, #ebaa1f);
+  color: aliceblue;
+}
+
+.guardar{
+  background-color: rgb(58, 111, 226);
+  transition: all.5s ease-in-out;
+  color: white;
+}
+
+.cancelar {
+  background-color: rgb(226, 58, 58);
+  transition: all.5s ease-in-out;
+  color: white;
+}
+
+.guardar:hover {
+  transition: all.3s ease-in-out;
+  -webkit-transform: rotate(360deg);
+  -webkit-transform:scale(1.3);transform:scale(1.1);
+}
+
+.cancelar:hover {
+  transition: all.3s ease-in-out;
+  -webkit-transform: rotate(360deg);
+  -webkit-transform:scale(1.3);transform:scale(1.1);
+}
+  

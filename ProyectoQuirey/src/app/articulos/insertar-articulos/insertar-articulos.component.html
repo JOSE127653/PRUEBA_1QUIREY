@@ -1,0 +1,110 @@
+<h1 mat-dialog-title class="titulo">Nuevo Articulo</h1>
+<div mat-dialog-content class="mat-dialog-grid">
+  <!-- Fila para el formulario -->
+  <div class="mat-dialog-row">
+    <!-- Opciones de Formulario -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>Codigo</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el codigo"
+          [(ngModel)]="codigoDepartamento"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>Descripcion</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa la descripcion"
+          [(ngModel)]="descripcionDepartamento"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- lista -->
+  <mat-label class="LisLebel">UnidadMedida</mat-label>
+  <select
+    class="ListaDes"
+    name="my-select"
+    [(ngModel)]="idunidadDepartamento"
+    required
+    aria-required="true"
+    (change)="selectChange()"
+  >
+    <option *ngFor="let item of users" [value]="item.Id">
+      {{ item.Nombre }}
+    </option>
+  </select>
+
+  <!-- lista -->
+  <h1></h1>
+  
+
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>Costo</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el costo"
+          [(ngModel)]="costoDepartamento"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>Precio</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el precio"
+          [(ngModel)]="precioDepartamento"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>UsuarioActualiza</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el UsuarioActualiza"
+          [(ngModel)]="usuarioactualizaDepartamento"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <!-- Opciones botones-->
+</div>
+<div mat-dialog-actions>
+  <button class="cancelar" mat-button cdkFocusInitial (click)="onNoClick()">
+    Cancelar
+  </button>
+  <button class="guardar" mat-button cdkFocusInitial (click)="insertar()">
+    Añadir
+  </button>
+</div>

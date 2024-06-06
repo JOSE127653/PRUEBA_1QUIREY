@@ -1,0 +1,27 @@
+<h1 mat-dialog-title class="titulo">Añadir Almacen</h1>
+<div mat-dialog-content class="mat-dialog-grid">
+  <!-- Fila para el formulario -->
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de nombre -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>Nombre</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el nombre"
+          [(ngModel)]="nombreDepartamento"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- Puedes agregar más filas con más campos aquí -->
+</div>
+<div mat-dialog-actions>
+  <button class="cancelar" mat-button cdkFocusInitial (click)="onNoClick()">
+    Cancelar
+  </button>
+  <button class="insertar" mat-button cdkFocusInitial (click)="insertar()">
+    Insertar
+  </button>
+</div>

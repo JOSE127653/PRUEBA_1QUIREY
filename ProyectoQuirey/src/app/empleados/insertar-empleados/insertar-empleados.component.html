@@ -1,0 +1,103 @@
+<h1 mat-dialog-title class="titulo">Nuevo Empleado</h1>
+<div mat-dialog-content class="mat-dialog-grid">
+  <!-- Fila para el formulario -->
+  <div class="mat-dialog-row">
+    <!-- Opciones de Formulario -->
+
+    <div class="mat-dialog-row">
+      <!-- Columna para el campo de nombre -->
+      <div class="mat-dialog-cell">
+        <mat-form-field>
+          <mat-label>Matricula</mat-label>
+          <input
+            matInput
+            placeholder="Ingresa el usuario"
+            [(ngModel)]="Matricula"
+            required
+            aria-required="true"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+   
+    <!-- Columna para el campo de nombre -->
+   
+    <mat-label class="LisLebel">Puesto</mat-label>
+    <select
+      class="ListaDes"
+      name="my-select"
+      [(ngModel)]="idpuestoslistDepartamento"
+      title="Selecciona una persona de la lista"
+      required
+      aria-required="true"
+      (change)="selectChangePuestos()"
+    >
+      <option *ngFor="let item of puestos" [value]="item.Id">
+        {{ item.Nombre }}
+      </option>
+    </select>
+
+
+
+
+    
+    
+      <!-- Columna para el campo de nombre -->
+      <mat-label class="LisLebel">perfil</mat-label>
+    <select
+      class="ListaDes"
+      name="my-select"
+      [(ngModel)]="idperfileslistDepartamento"
+      title="Selecciona una persona de la lista"
+      required
+      aria-required="true"
+      (change)="selectChangePerfiles()"
+    >
+      <option *ngFor="let item of perfiles" [value]="item.Id">
+        {{ item.Nombre }}
+      </option>
+    </select>
+    <div class="mat-dialog-row">
+      <!-- Columna para el campo de nombre -->
+      <div class="mat-dialog-cell">
+        <mat-form-field>
+          <mat-label>Usuario</mat-label>
+          <input
+            matInput
+            placeholder="Ingresa el usuario"
+            [(ngModel)]="Usuario"
+            required
+            aria-required="true"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+ 
+      <!-- Columna para el campo de nombre -->
+      <mat-label class="LisLebel">idpersonas</mat-label>
+      <select
+        class="ListaDes"
+        name="my-select"
+        [(ngModel)]="idpersonaslistDepartamento"
+        title="Selecciona una persona de la lista"
+        required
+        aria-required="true"
+        (change)="selectChangePersonas()"
+      >
+        <option *ngFor="let item of idpersona" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+
+    <!-- Opciones botones-->
+  </div>
+  <div mat-dialog-actions>
+    <button class="cancelar" mat-button cdkFocusInitial (click)="onNoClick()">
+      Cancelar
+    </button>
+    <button class="guardar" mat-button cdkFocusInitial (click)="insertar()">
+      Añadir
+    </button>
+  </div>
+</div>

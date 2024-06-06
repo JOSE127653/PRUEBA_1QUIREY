@@ -1,0 +1,83 @@
+<h1 mat-dialog-title class="titulo">Editar Detalle</h1>
+<div mat-dialog-content class="mat-dialog-grid">
+  <!-- Fila para el formulario -->
+  <div class="mat-dialog-row">
+    <!-- Opciones de formulario -->
+    <div class="mat-dialog-cell">
+      <!-- <mat-form-field> -->
+      <!-- <mat-label>IdPerfil</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el IdPerfil"
+          [(ngModel)]="detalleperfil.IdPerfil"
+        /> -->
+      <!-- <mat-form-field> required aria-required="true" /> </mat-form-field> -->
+
+      <!-- lista -->
+      <h1></h1>
+      <h1></h1>
+      <mat-label class="LisLebel">IdPerfil</mat-label>
+      <select
+        class="ListaDes"
+        [(ngModel)]="idperfileslistDepartamento"
+        required
+        aria-required="true"
+        (change)="selectChangePerfiles()"
+      >
+        <option *ngFor="let item of perfiles" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+
+      <!-- lista -->
+      <!-- 
+      <mat-form-field>
+        <mat-label>IdModulo</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa la IdModulo"
+          [(ngModel)]="detalleperfil.IdModulo"
+          required
+          aria-required="true"
+        />
+      </mat-form-field> -->
+      <!-- lista -->
+      <h1></h1>
+      <mat-label class="LisLebel">IdModulo</mat-label>
+      <select
+        class="ListaDes"
+        [(ngModel)]="idmoduloslistDepartamento"
+        required
+        aria-required="true"
+        (change)="selectChangeModulos()"
+      >
+        <option *ngFor="let item of modulos" [value]="item.Id">
+          {{ item.Modulo }}
+        </option>
+      </select>
+
+      <!-- lista -->
+
+      <mat-form-field>
+        <mat-label>Usuario</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el Usuario"
+          [(ngModel)]="detalleperfil.Usuario"
+          required
+          aria-required="true"
+          step="1"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <!-- Opciones botones-->
+</div>
+<div mat-dialog-actions>
+  <button class="cancelar" mat-button (click)="onNoClick()">Cancelar</button>
+  <button class="guardar" mat-button (click)="guardar()">
+    Guardar Cambios
+  </button>
+</div>

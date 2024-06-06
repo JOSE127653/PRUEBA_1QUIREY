@@ -1,0 +1,75 @@
+<style>
+  .custom-card {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+    overflow: visible;
+  }
+
+  .custom-card:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  }
+
+  .icon-section {
+    /* Aumenta el padding si es necesario */
+    padding: 0px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+  }
+
+  .icon {
+    font-size: 40px; /* Ajusta este valor según tus necesidades */
+    color: #757575;
+    height: 40px; /* Asegúrate de ajustar también la altura */
+    width: 40px; /* Asegúrate de ajustar también el ancho */
+  }
+
+  .info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+  }
+
+  .info-section span {
+    font-size: 14px;
+    color: #757575;
+  }
+
+  .info-section h4 {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  .footer-section {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .percentage {
+    color: green; /* You can adjust the color based on positive or negative percentages */
+    font-weight: bold;
+  }
+</style>
+<mat-card class="custom-card">
+  <div class="icon-section">
+    <mat-icon class="icon" style="width: 40px; height: 40px">weekend</mat-icon>
+  </div>
+  <div class="info-section">
+    <h4>Reportes de contabilidad</h4>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="footer-section">
+    <p>Ingresar al módulo</p>
+  </div>
+</mat-card>

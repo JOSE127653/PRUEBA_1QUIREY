@@ -1,0 +1,98 @@
+<h1 mat-dialog-title class="titulo">Editar Articulo</h1>
+<div mat-dialog-content class="mat-dialog-grid">
+  <!-- Fila para el formulario -->
+  <div class="mat-dialog-row">
+    <!-- Opciones de formulario -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>Codigo</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el Codigo"
+          [(ngModel)]="departamento.Codigo"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Descripcion</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa la Descripcion"
+          [(ngModel)]="departamento.Descripcion"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+        <mat-label>UnidadMedida</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa la UnidadMedida"
+          [(ngModel)]="departamento.UnidadMedida"
+        />
+      </mat-form-field> -->
+
+      <!-- lista -->
+
+      <mat-label class="LisLebel">UnidadMedida</mat-label>
+      <select
+        class="ListaDes"
+        [(ngModel)]="idunidadmedidalistDepartamento"
+        required
+        aria-required="true"
+        (change)="selectChangeUnidadMedida()"
+      >
+        <option *ngFor="let item of unidadmedida" [value]="item.Id">
+          {{ item.Nombre }}
+        </option>
+      </select>
+      <h1></h1>
+
+      <!-- lista -->
+
+      <mat-form-field>
+        <mat-label>Costo</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el Costo"
+          [(ngModel)]="departamento.Costo"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Precio</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el Precio"
+          [(ngModel)]="departamento.Precio"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>UsuarioActualiza</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el UsuarioActualiza"
+          [(ngModel)]="departamento.UsuarioActualiza"
+          required
+          aria-required="true"
+          step="1"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <!-- Opciones botones-->
+</div>
+<div mat-dialog-actions>
+  <button class="cancelar" mat-button (click)="onNoClick()">Cancelar</button>
+  <button class="guardar" mat-button (click)="guardar()">
+    Guardar Cambios
+  </button>
+</div>
