@@ -21,20 +21,24 @@
     </div> -->
     <!-- </div> -->
 
-    <!-- lista -->
+     <!-- Autocompletado para Perfiles -->
     <h1></h1>
     <h1></h1>
-    <mat-label class="LisLebel">Perfiles</mat-label>
-    <select
-      class="ListaDes"
-      name="my-select"
-      [(ngModel)]="idperfileslistDepartamento"
-      (change)="selectChangePerfiles()"
-    >
-      <option *ngFor="let item of perfiles" [value]="item.Id">
-        {{ item.Nombre }}
-      </option>
-    </select>
+    <mat-form-field class="AutoCom">
+      <mat-label>Perfiles</mat-label>
+      <input
+        type="text"
+        matInput
+        [formControl]="perfilesControl"
+        [matAutocomplete]="autoPerfiles"
+      />
+      <mat-autocomplete #autoPerfiles="matAutocomplete">
+        <mat-option *ngFor="let item of perfiles" [value]="item.Nombre">
+          {{ item.Nombre }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+
 
     <!-- lista -->
     <h1></h1>

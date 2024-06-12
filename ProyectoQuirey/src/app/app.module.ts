@@ -115,9 +115,11 @@ import { ControlPanelUnidadmedidaComponent } from './unidadmedida/control-panel-
 import { EditarUnidadMedidaComponent } from './unidadmedida/editar-unidadmedida/editar-unidadmedida.component';
 import { InsertarUnidadmedidaComponent } from './unidadmedida/insertar-unidadmedida/insertar-unidadmedida.component';
 import { InicioComponent } from './inicio/inicio.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 const appRoutes: Routes = [
   //{path:'controlPanel', component:ControlPanelAlmacenesComponent},
+ 
   { path: 'almacenes', component: AlmacenesComponent }, //
   { path: 'articulos', component: ArticulosComponent }, //
   { path: 'clientes', component: ClientesComponent }, //
@@ -133,6 +135,7 @@ const appRoutes: Routes = [
 
   { path: 'detallemovimiento', component: DetallemovimientoComponent },
 
+  { path: 'incio', component: InicioComponent },
   { path: 'login', component: LoginComponent },
   //aqui
   { path: 'usuarios', component: UsuariosComponent },
@@ -268,6 +271,7 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
+    MatAutocompleteModule,
     MatPaginatorModule,
     ReactiveFormsModule,
   ],

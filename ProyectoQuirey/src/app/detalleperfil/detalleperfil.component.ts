@@ -8,6 +8,7 @@ import { DetalleperfilService } from '../detalleperfil.service';
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
+
 @Component({
   selector: 'app-detalleperfil',
   templateUrl: './detalleperfil.component.html',
