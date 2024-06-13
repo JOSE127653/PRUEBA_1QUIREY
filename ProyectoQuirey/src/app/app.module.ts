@@ -135,7 +135,7 @@ const appRoutes: Routes = [
 
   { path: 'detallemovimiento', component: DetallemovimientoComponent },
 
-  { path: 'incio', component: InicioComponent },
+  { path: 'inicio', component: InicioComponent },
   { path: 'login', component: LoginComponent },
   //aqui
   { path: 'usuarios', component: UsuariosComponent },
