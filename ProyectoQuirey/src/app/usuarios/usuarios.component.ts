@@ -18,9 +18,9 @@ export class UsuariosComponent {
     'Id',
     'NombreUsuario',
     'Password',
-    'FechaHora',
-    'Activo',
-    'IdPersona',
+    'Rol',
+    'Empleado',
+    'Usuario',
     'Acciones',
   ];
 

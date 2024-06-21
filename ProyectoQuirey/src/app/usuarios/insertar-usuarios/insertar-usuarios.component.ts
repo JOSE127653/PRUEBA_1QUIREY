@@ -16,7 +16,8 @@ export class InsertarUsuariosComponent {
 
   nombreusuarioDepartamento: string = '';
   passwordDepartamento: string = '';
-  usuarioDepartamento: string = '';
+  Rol: string = '';
+  UsuarioActualiza: string = '';
   idpersonaDepartamento: number = 1;
   idpersonalistDepartamento: number = 0;
 
@@ -54,6 +55,8 @@ export class InsertarUsuariosComponent {
     if (
       !this.nombreusuarioDepartamento ||
       !this.passwordDepartamento ||
+      !this.Rol ||
+      !this.UsuarioActualiza ||
       !this.idpersonalistDepartamento ||
       !this.idpersonalistDepartamento
     ) {
@@ -69,7 +72,9 @@ export class InsertarUsuariosComponent {
     const nuevoDepartamento = {
       NombreUsuario: this.nombreusuarioDepartamento,
       Password: this.passwordDepartamento,
-      Usuario: this.usuarioDepartamento,
+
+      Rol: this.Rol,
+      UsuarioActualiza: this.UsuarioActualiza,
       IdPersona: this.idpersonalistDepartamento,
       IdPersonas: this.idpersonalistDepartamento,
       // ...otros campos si los hay

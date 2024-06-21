@@ -23,12 +23,16 @@ export class UsuariosService {
   insertarDepartamento(departamentoData: {
     NombreUsuario: string;
     Password: string;
+    Rol: string;
+    UsuarioActualiza: string;
     IdPersona: number;
   }): Observable<ApiResponse> {
     // El 'nombre' es la única parte variable que viene del formulario
     // 'activo' y 'usuario' son valores fijos en este ejemplo
     const body = {
       nombreusuario: departamentoData.NombreUsuario,
+      Rol: departamentoData.Rol,
+      UsuarioActualiza: departamentoData.UsuarioActualiza,
       Password: departamentoData.Password, // Valor por defecto si no se proporciona
       IdPersona: departamentoData.IdPersona || 0, // Valor por defecto si no se proporciona
     };
@@ -43,6 +47,8 @@ export class UsuariosService {
     const body = {
       id: departamentoData.Id,
       nombreusuario: departamentoData.NombreUsuario,
+      Rol: departamentoData.Rol,
+      UsuarioActualiza: departamentoData.UsuarioActualiza,
       password: departamentoData.Password,
       idpersona: departamentoData.IdPersona,
     };

@@ -31,6 +31,7 @@ export class EditarAlmacenesComponent implements OnInit {
     // Verifica si los campos obligatorios están completos
     if (
       !this.departamento.Nombre ||
+      !this.departamento.Encargado ||
       !this.departamento.Direccion ||
       !this.departamento.UsuarioActualiza
     ) {

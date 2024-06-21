@@ -31,11 +31,13 @@ export class AlmacenesService {
     Nombre: string;
     Direccion: string;
     UsuarioActualiza: number;
+    Encargado: number;
   }): Observable<ApiResponse> {
     // El 'nombre' es la única parte variable que viene del formulario
     // 'activo' y 'usuario' son valores fijos en este ejemplo
     const body = {
       nombre: departamentoData.Nombre,
+      Encargado: departamentoData.Encargado,
       direccion: departamentoData.Direccion, // Valor por defecto si no se proporciona
       usuarioactualiza: departamentoData.UsuarioActualiza || 0, // Valor por defecto si no se proporciona
     };
