@@ -52,6 +52,8 @@ export class EditarUsuariosComponent implements OnInit {
     if (
       !this.departamento.NombreUsuario ||
       !this.departamento.Password ||
+      !this.departamento.Rol ||
+      !this.departamento.UsuarioActualiza ||
       !this.departamento.IdPersona
     ) {
       Swal.fire({

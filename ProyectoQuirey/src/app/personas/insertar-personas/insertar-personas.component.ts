@@ -12,9 +12,10 @@ export class InsertarPersonasComponent {
   nombreDepartamento: string = '';
   appaternoDepartamento: string = '';
   apmaternoDepartamento: string = '';
-  CurpDepartamento: string = '';
   direccionDepartamento: string = '';
-  usuarioDepartamento: number = 1;
+  Rol: number = 1;
+  sucursal: number = 1;
+  UsuarioActualiza: number = 1;
 
   constructor(
     public dialogRef: MatDialogRef<InsertarPersonasComponent>,
@@ -31,9 +32,10 @@ export class InsertarPersonasComponent {
       !this.nombreDepartamento ||
       !this.appaternoDepartamento ||
       !this.apmaternoDepartamento ||
-      !this.CurpDepartamento ||
+      !this.Rol ||
       !this.direccionDepartamento ||
-      !this.usuarioDepartamento
+      !this.sucursal ||
+      !this.UsuarioActualiza
     ) {
       Swal.fire({
         icon: 'error',
@@ -46,9 +48,10 @@ export class InsertarPersonasComponent {
       Nombre: this.nombreDepartamento,
       ApPaterno: this.appaternoDepartamento,
       ApMaterno: this.apmaternoDepartamento,
-      Curp: this.CurpDepartamento,
       Direccion: this.direccionDepartamento,
-      Usuario: this.usuarioDepartamento,
+      Rol: this.Rol,
+      sucursal: this.sucursal,
+      UsuarioActualiza: this.UsuarioActualiza,
       // ...otros campos si los hay
     };
 

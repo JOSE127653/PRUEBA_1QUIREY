@@ -18,9 +18,8 @@ export class ExistenciasComponent {
     'Id',
     'Codigo',
     'IdAlmacen',
-    'Fecha',
     'Cantidad',
-    'Estatus',
+    
   ];
 
   dataSource = new MatTableDataSource<Existencias>();

@@ -3,11 +3,11 @@ export interface Personas {
   Nombre: string;
   ApPaterno: string;
   ApMaterno: string;
-  curp: string;
+  UsuarioActualiza: string;
   Direccion: string;
-  Activo: number;
-  FechaHora: string;
-  Usuario: number;
+  Perfil: number;
+  Rol: string;
+  sucursal: number;
 }
 
 export interface ApiResponse {
@@ -25,9 +25,9 @@ export interface EditarPersonas {
   Nombre: string;
   ApPaterno: string;
   ApMaterno: string;
-  curp: string;
+  UsuarioActualiza: string;
   Direccion: string;
-  Activo: number;
-  FechaHora: string;
-  Usuario: number;
+  Perfil: number;
+  Rol: string;
+  sucursal: number;
 }

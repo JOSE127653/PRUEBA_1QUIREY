@@ -38,16 +38,6 @@
         />
       </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Curp</mat-label>
-        <input
-          matInput
-          placeholder="Ingresa el Curp"
-          [(ngModel)]="departamento.curp"
-          required
-          aria-required="true"
-        />
-      </mat-form-field>
 
       <mat-form-field>
         <mat-label>Direccion</mat-label>
@@ -61,16 +51,28 @@
       </mat-form-field>
 
       <mat-form-field>
-        <mat-label>Usuario</mat-label>
+        <mat-label>UsuarioActualiza</mat-label>
         <input
           matInput
           type="number"
           placeholder="Ingresa el Usuario"
-          [(ngModel)]="departamento.Usuario"
+          [(ngModel)]="departamento.UsuarioActualiza"
           required
           aria-required="true"
         />
       </mat-form-field>
+      <mat-form-field>
+        <mat-label>sucursal</mat-label>
+        <input
+          matInput
+          type="number"
+          placeholder="Ingresa el sucursal"
+          [(ngModel)]="departamento.sucursal"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+      
     </div>
   </div>
   <!-- Opciones botones-->

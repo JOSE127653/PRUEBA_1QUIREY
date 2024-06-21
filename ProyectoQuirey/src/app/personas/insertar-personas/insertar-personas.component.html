@@ -48,11 +48,11 @@
     <!-- Curp -->
     <div class="mat-dialog-cell">
       <mat-form-field>
-        <mat-label>Curp</mat-label>
+        <mat-label>Rol</mat-label>
         <input
           matInput
-          placeholder="Ingresa el Curp"
-          [(ngModel)]="CurpDepartamento"
+          placeholder="Ingresa el Rol"
+          [(ngModel)]="Rol"
           required
           aria-required="true"
         />
@@ -80,7 +80,20 @@
         <input
           matInput
           placeholder="Ingresa el UsuarioActualiza"
-          [(ngModel)]="usuarioDepartamento"
+          [(ngModel)]="UsuarioActualiza"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+    </div>
+      <!-- sucursal -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>sucursal</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el sucursal"
+          [(ngModel)]="sucursal"
           required
           aria-required="true"
         />
