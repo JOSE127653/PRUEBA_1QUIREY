@@ -32,9 +32,9 @@ export class EditarPersonasComponent implements OnInit {
       !this.departamento.Nombre ||
       !this.departamento.ApPaterno ||
       !this.departamento.ApMaterno ||
-      !this.departamento.curp ||
+      !this.departamento.UsuarioActualiza ||
       !this.departamento.Direccion ||
-      !this.departamento.Usuario
+      !this.departamento.sucursal
     ) {
       // Mostrar mensaje de error con SweetAlert2
       Swal.fire({

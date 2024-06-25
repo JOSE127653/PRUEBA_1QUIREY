@@ -4,6 +4,7 @@ export interface Almacenes {
     Direccion: string;
     FechaActualiza: string;
     UsuarioActualiza: number;
+    Encargado: number;
     Estatus: number;
   }
   
@@ -23,5 +24,6 @@ export interface Almacenes {
     Direccion: string;
     FechaActualiza: string;
     UsuarioActualiza: number;
+    Encargado: number;
     Estatus: number;
   }

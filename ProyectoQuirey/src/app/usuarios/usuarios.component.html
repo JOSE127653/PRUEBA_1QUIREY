@@ -22,6 +22,7 @@
 <a class="letrasBarra" routerLink="/rutas">Rutas</a>
 <a class="letrasBarra" routerLink="/sucursalsede">Sucursal Sede</a>
 <a class="letrasBarra" routerLink="/tickets">Tickets</a>
+<a class="letrasBarra" routerLink="/login">cerrar sesion</a>
 
       </mat-nav-list>
     </div>
@@ -70,31 +71,35 @@
             {{ departamento.NombreUsuario }}
           </td>
         </ng-container>
+
         <ng-container matColumnDef="Password">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Password</th>
           <td mat-cell *matCellDef="let departamento">
             {{ departamento.Password }}
           </td>
         </ng-container>
-        <ng-container matColumnDef="FechaHora">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>FechaHora</th>
+        <ng-container matColumnDef="Rol">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Rol</th>
           <td mat-cell *matCellDef="let departamento">
-            {{ departamento.FechaHora }}
-          </td>
-        </ng-container>
-        <ng-container matColumnDef="Activo">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Activo</th>
-          <td mat-cell *matCellDef="let departamento">
-            {{ departamento.Activo }}
+            {{ departamento.Rol }}
           </td>
         </ng-container>
 
-        <ng-container matColumnDef="IdPersona">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>IdPersona</th>
+       
+        <ng-container matColumnDef="Empleado">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Empleado</th>
           <td mat-cell *matCellDef="let departamento">
-            {{ departamento.IdPersona }}
+            {{ departamento.Empleado }}
           </td>
         </ng-container>
+        <ng-container matColumnDef="Usuario">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Usuario</th>
+          <td mat-cell *matCellDef="let departamento">
+            {{ departamento.Usuario }}
+          </td>
+        </ng-container>
+
+       
 
         <ng-container matColumnDef="Acciones">
           <th mat-header-cell *matHeaderCellDef>Acciones</th>

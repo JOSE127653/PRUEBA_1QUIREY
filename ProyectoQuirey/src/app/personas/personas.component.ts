@@ -20,11 +20,12 @@ export class PersonasComponent {
     'Nombre',
     'ApPaterno',
     'ApMaterno',
-    'Curp',
     'Direccion',
-    'FechaHora',
-    'Activo',
-    'Usuario',
+    'UsuarioActualiza',
+    'Perfil',
+    'FechaActualiza',
+    'FechaRegistro',
+    'Sucursal',
     'Acciones',
   ];
  

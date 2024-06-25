@@ -17,9 +17,8 @@ export class PerfilesComponent {
   displayedColumns: string[] = [
     'Id',
     'Nombre',
-    'FechaHora',
-    'Activo',
-    'Usuario',
+    'FechaRegistro',
+    'NombreUsuario',
     'Acciones',
   ];
 

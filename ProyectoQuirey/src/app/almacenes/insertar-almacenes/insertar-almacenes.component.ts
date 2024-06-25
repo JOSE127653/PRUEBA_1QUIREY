@@ -12,6 +12,7 @@ export class InsertarAlmacenesComponent {
   nombreDepartamento: string = '';
   direccionDepartamento: string = '';
   usuarioactualizaDepartamento: number = 1;
+  EncargadoDepartamento: number = 1;
 
   constructor(
     public dialogRef: MatDialogRef<InsertarAlmacenesComponent>,
@@ -27,6 +28,7 @@ export class InsertarAlmacenesComponent {
     if (
       !this.nombreDepartamento ||
       !this.direccionDepartamento ||
+      !this.EncargadoDepartamento ||
       !this.usuarioactualizaDepartamento
     ) {
       // Muestra un mensaje de error utilizando Swal
@@ -47,6 +49,7 @@ export class InsertarAlmacenesComponent {
       Nombre: this.nombreDepartamento,
       Direccion: this.direccionDepartamento,
       UsuarioActualiza: this.usuarioactualizaDepartamento,
+      Encargado: this.EncargadoDepartamento,
       // ...otros campos si los hay
     };
 

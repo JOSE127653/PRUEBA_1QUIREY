@@ -27,6 +27,7 @@ export class EmpleadosComponent {
   ];
 
 
+
   dataSource = new MatTableDataSource<empleados>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

@@ -48,6 +48,21 @@
       </mat-form-field>
     </div>
   </div>
+  <div class="mat-dialog-row">
+    <!-- Columna para el campo de usuario que actualiza -->
+    <div class="mat-dialog-cell">
+      <mat-form-field>
+        <mat-label>Encargado</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el Usuario que actualiza"
+          [(ngModel)]="EncargadoDepartamento"
+          required
+          aria-required="true"
+        />
+      </mat-form-field>
+    </div>
+  </div>
   <!-- Puedes agregar más filas con más campos aquí -->
 </div>
 <div mat-dialog-actions>
