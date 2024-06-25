@@ -58,7 +58,6 @@
         <a class="letrasBarra" routerLink="/tickets">Tickets</a>
         <a class="letrasBarra" routerLink="/usuarios">Usuarios</a>
         <a class="letrasBarra" routerLink="/login">cerrar sesion</a>
-        >>>>>>> upstream/JOSE-
       </mat-nav-list>
     </div>
   </mat-sidenav>
@@ -75,71 +74,6 @@
     </mat-toolbar>
 
     <!-- Contenido de la página principal -->
-
-    <!-- FORMULARIO PARA INSERTAR Y EDITAR -->
-    <form (ngSubmit)="onSubmit()">
-      <mat-form-field>
-        <mat-label>IdTicket</mat-label>
-        <input
-          matInput
-          placeholder="Ingresa el IdTicket"
-          [(ngModel)]="idticketDepartamento"
-          name="idticketDepartamento"
-          required
-        />
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Codigo</mat-label>
-        <input
-          matInput
-          placeholder="Ingresa el Codigo"
-          [(ngModel)]="codigoDepartamento"
-          name="codigoDepartamento"
-          required
-        />
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Cantidad</mat-label>
-        <input
-          matInput
-          placeholder="Ingresa la Cantidad"
-          [(ngModel)]="cantidadDepartamento"
-          name="cantidadDepartamento"
-          required
-        />
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>PrecioVenta</mat-label>
-        <input
-          matInput
-          placeholder="Ingresa el PrecioVenta"
-          [(ngModel)]="precioventaDepartamento"
-          name="precioventaDepartamento"
-          required
-        />
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>UsuarioActualiza</mat-label>
-        <input
-          matInput
-          placeholder="Ingresa el UsuarioActualiza"
-          [(ngModel)]="usuarioactualizaDepartamento"
-          name="usuarioactualizaDepartamento"
-          required
-        />
-      </mat-form-field>
-
-      <div mat-dialog-actions>
-        <button class="cancelar" mat-button type="button" (click)="onCancel()">
-          Cancelar
-        </button>
-        <button class="guardar" mat-button type="submit">Añadir</button>
-      </div>
-    </form>
 
     <!-- Resto de tu código -->
 
@@ -224,7 +158,7 @@
         <ng-container matColumnDef="Acciones">
           <th mat-header-cell *matHeaderCellDef>Acciones</th>
           <td mat-cell *matCellDef="let elemento">
-            <mat-icon class="editar" (click)="editarElemento(elemento)"
+            <mat-icon class="editar" (click)="abrirEditarModal(elemento)"
               >edit</mat-icon
             >
             <mat-icon class="borrar" (click)="eliminarDepartamento(elemento.Id)"
