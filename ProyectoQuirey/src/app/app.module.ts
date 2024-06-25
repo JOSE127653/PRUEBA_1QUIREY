@@ -114,7 +114,6 @@ import { UnidadmedidaComponent } from './unidadmedida/unidadmedida.component';
 import { ControlPanelUnidadmedidaComponent } from './unidadmedida/control-panel-unidadmedida/control-panel-unidadmedida.component';
 import { EditarUnidadMedidaComponent } from './unidadmedida/editar-unidadmedida/editar-unidadmedida.component';
 import { InsertarUnidadmedidaComponent } from './unidadmedida/insertar-unidadmedida/insertar-unidadmedida.component';
-import { InicioComponent } from './inicio/inicio.component';
 
 const appRoutes: Routes = [
   //{path:'controlPanel', component:ControlPanelAlmacenesComponent},
@@ -244,7 +243,6 @@ const appRoutes: Routes = [
     ControlPanelUnidadmedidaComponent,
     EditarUnidadMedidaComponent,
     InsertarUnidadmedidaComponent,
-    InicioComponent,
   ],
   imports: [
     HttpClientModule,

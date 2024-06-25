@@ -3,32 +3,46 @@
     <!-- Contenido del menú -->
     <div class="contenedor">
       <mat-nav-list class="barra">
-        <img src="assets/logo quirey limpio.png" alt="Icono" width="150" height="150">
+        <img
+          src="assets/logo quirey limpio.png"
+          alt="Icono"
+          width="150"
+          height="150"
+        />
         <a class="letrasBarra" routerLink="/almacenes">Almacenes</a>
-<a class="letrasBarra" routerLink="/articulos">Articulos</a>
-<a class="letrasBarra" routerLink="/categoriamodulos">Categoria de Modulos</a>
-<a class="letrasBarra" routerLink="/clientes">Clientes</a>
-<a class="letrasBarra" routerLink="/detallemovimiento">Detalles de Movimiento</a>
-<a class="letrasBarra" routerLink="/detalleperfil">Detalle de Perfil</a>
-<a class="letrasBarra" routerLink="/empleados">Empleados</a>
-<a class="letrasBarra" routerLink="/existencias">Existencias</a>
-<a class="letrasBarra" routerLink="/modulos">Modulos</a>
-<a class="letrasBarra" routerLink="/modulosusuario">Modulos Usuario</a>
-<a class="letrasBarra" routerLink="/movimientosinventario">Movimientosde Inventario</a>
-<a class="letrasBarra" routerLink="/perfiles">Perfiles</a>
-<a class="letrasBarra" routerLink="/personas">Personas</a>
-<a class="letrasBarra" routerLink="/puestos">Puestos</a>
-<a class="letrasBarra" routerLink="/rutas">Rutas</a>
-<a class="letrasBarra" routerLink="/sucursalsede">Sucursal Sede</a>
-<a class="letrasBarra" routerLink="/tickets">Tickets</a>
-<a class="letrasBarra" routerLink="/usuarios">Usuarios</a>
+        <a class="letrasBarra" routerLink="/articulos">Articulos</a>
+        <a class="letrasBarra" routerLink="/categoriamodulos"
+          >Categoria de Modulos</a
+        >
+        <a class="letrasBarra" routerLink="/clientes">Clientes</a>
+        <a class="letrasBarra" routerLink="/detallemovimiento"
+          >Detalles de Movimiento</a
+        >
+        <a class="letrasBarra" routerLink="/detalleperfil">Detalle de Perfil</a>
+        <a class="letrasBarra" routerLink="/empleados">Empleados</a>
+        <a class="letrasBarra" routerLink="/existencias">Existencias</a>
+        <a class="letrasBarra" routerLink="/modulos">Modulos</a>
+        <a class="letrasBarra" routerLink="/modulosusuario">Modulos Usuario</a>
+        <a class="letrasBarra" routerLink="/movimientosinventario"
+          >Movimientosde Inventario</a
+        >
+        <a class="letrasBarra" routerLink="/perfiles">Perfiles</a>
+        <a class="letrasBarra" routerLink="/personas">Personas</a>
+        <a class="letrasBarra" routerLink="/puestos">Puestos</a>
+        <a class="letrasBarra" routerLink="/rutas">Rutas</a>
+        <a class="letrasBarra" routerLink="/sucursalsede">Sucursal Sede</a>
+        <a class="letrasBarra" routerLink="/tickets">Tickets</a>
+        <a class="letrasBarra" routerLink="/usuarios">Usuarios</a>
       </mat-nav-list>
     </div>
   </mat-sidenav>
 
   <mat-sidenav-content class="content animated-background">
-    <mat-toolbar class= "titulo1" style="background-color: #df9412; color: rgb(255, 255, 255)">
-      <button class="Menuicono"  mat-icon-button (click)="sidenav.toggle()">
+    <mat-toolbar
+      class="titulo1"
+      style="background-color: #df9412; color: rgb(255, 255, 255)"
+    >
+      <button class="Menuicono" mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
       <span class="Encabezado">DETALLE DE TICKETS</span>
@@ -36,10 +50,75 @@
 
     <!-- Contenido de la página principal -->
 
+    <!-- FORMULARIO PARA INSERTAR Y EDITAR -->
+    <form (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <mat-label>IdTicket</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el IdTicket"
+          [(ngModel)]="idticketDepartamento"
+          name="idticketDepartamento"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Codigo</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el Codigo"
+          [(ngModel)]="codigoDepartamento"
+          name="codigoDepartamento"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Cantidad</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa la Cantidad"
+          [(ngModel)]="cantidadDepartamento"
+          name="cantidadDepartamento"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>PrecioVenta</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el PrecioVenta"
+          [(ngModel)]="precioventaDepartamento"
+          name="precioventaDepartamento"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>UsuarioActualiza</mat-label>
+        <input
+          matInput
+          placeholder="Ingresa el UsuarioActualiza"
+          [(ngModel)]="usuarioactualizaDepartamento"
+          name="usuarioactualizaDepartamento"
+          required
+        />
+      </mat-form-field>
+
+      <div mat-dialog-actions>
+        <button class="cancelar" mat-button type="button" (click)="onCancel()">
+          Cancelar
+        </button>
+        <button class="guardar" mat-button type="submit">Añadir</button>
+      </div>
+    </form>
+
     <!-- Resto de tu código -->
 
     <div>
-      <mat-form-field class="mat-form-field ">
+      <mat-form-field class="mat-form-field">
         <mat-label>Filtrar</mat-label>
         <input
           matInput
@@ -56,67 +135,91 @@
     </div>
 
     <div class="TabladeDatos">
-    <table mat-table [dataSource]="dataSource" matSort>
+      <table mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="Id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.Id}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+          <td mat-cell *matCellDef="let departamento">{{ departamento.Id }}</td>
         </ng-container>
         <ng-container matColumnDef="Codigo">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Codigo </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.Codigo}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Codigo</th>
+          <td mat-cell *matCellDef="let departamento">
+            {{ departamento.Codigo }}
+          </td>
         </ng-container>
         <ng-container matColumnDef="IdTicket">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> IdTicket </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.IdTicket}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>IdTicket</th>
+          <td mat-cell *matCellDef="let departamento">
+            {{ departamento.IdTicket }}
+          </td>
         </ng-container>
         <ng-container matColumnDef="Cantidad">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Cantidad </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.Cantidad}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Cantidad</th>
+          <td mat-cell *matCellDef="let departamento">
+            {{ departamento.Cantidad }}
+          </td>
         </ng-container>
         <ng-container matColumnDef="PrecioVenta">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> PrecioVenta </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.PrecioVenta}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>PrecioVenta</th>
+          <td mat-cell *matCellDef="let departamento">
+            {{ departamento.PrecioVenta }}
+          </td>
         </ng-container>
         <ng-container matColumnDef="Estatus">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Estatus </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.Estatus}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Estatus</th>
+          <td mat-cell *matCellDef="let departamento">
+            {{ departamento.Estatus }}
+          </td>
         </ng-container>
         <ng-container matColumnDef="FechaActualiza">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> FechaActualiza </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.FechaActualiza}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            FechaActualiza
+          </th>
+          <td mat-cell *matCellDef="let departamento">
+            {{ departamento.FechaActualiza }}
+          </td>
         </ng-container>
         <ng-container matColumnDef="UsuarioActualiza">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> UsuarioActualiza </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.UsuarioActualiza}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            UsuarioActualiza
+          </th>
+          <td mat-cell *matCellDef="let departamento">
+            {{ departamento.UsuarioActualiza }}
+          </td>
         </ng-container>
         <ng-container matColumnDef="DescripcionArticulo">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> DescripcionArticulo </th>
-            <td mat-cell *matCellDef="let departamento"> {{departamento.DescripcionArticulo}} </td>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            DescripcionArticulo
+          </th>
+          <td mat-cell *matCellDef="let departamento">
+            {{ departamento.DescripcionArticulo }}
+          </td>
         </ng-container>
-      
+
         <ng-container matColumnDef="Acciones">
           <th mat-header-cell *matHeaderCellDef>Acciones</th>
           <td mat-cell *matCellDef="let elemento">
-            <mat-icon class="editar"
-              (click)="abrirEditarModal(elemento)"
+            <mat-icon class="editar" (click)="editarElemento(elemento)"
               >edit</mat-icon
             >
-            <mat-icon class="borrar"
-              (click)="eliminarDepartamento(elemento.Id)"
+            <mat-icon class="borrar" (click)="eliminarDepartamento(elemento.Id)"
               >delete</mat-icon
             >
           </td>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row class="mat-row" *matRowDef="let row; columns: displayedColumns"></mat-row>
+        <mat-row
+          class="mat-row"
+          *matRowDef="let row; columns: displayedColumns"
+        ></mat-row>
       </table>
     </div>
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-    showFirstLastButtons
-    aria-label="Select page of periodic elements">
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
     </mat-paginator>
-
   </mat-sidenav-content>
 </mat-sidenav-container>
