@@ -181,5 +181,18 @@
       aria-label="Select page of periodic elements"
     >
     </mat-paginator>
+    <h3>Export as XLSX</h3>
+    <div class="container">
+      <button mat-raised-button color="primary" (click)="exportAsXLSX()">
+        Export
+        <mat-icon>trending_down</mat-icon>
+      </button>
+      Enbsp;
+      <button mat-raised-button color="accent" (click)="exportAsXLSXFiltered()">
+        Export
+        <mat-icon>trending_down</mat-icon>
+        Filtered
+      </button>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

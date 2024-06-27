@@ -8,19 +8,14 @@ import { InsertarExistenciasComponent } from './insertar-existencias/insertar-ex
 import { EditarExistenciasComponent } from './editar-existencias/editar-existencias.component';
 import { MatPaginator } from '@angular/material/paginator';
 
+import { ExporterService } from '../exportaciones/exporter.service';
 @Component({
   selector: 'app-existencias',
   templateUrl: './existencias.component.html',
   styleUrls: ['./existencias.component.css'],
 })
 export class ExistenciasComponent {
-  displayedColumns: string[] = [
-    'Id',
-    'Codigo',
-    'IdAlmacen',
-    'Cantidad',
-    
-  ];
+  displayedColumns: string[] = ['Id', 'Codigo', 'IdAlmacen', 'Cantidad'];
 
   dataSource = new MatTableDataSource<Existencias>();
 
@@ -30,9 +25,19 @@ export class ExistenciasComponent {
     this.dataSource.paginator = this.paginator;
   }
 
+  /// Exportacion a excel
+  exportAsXLSX(): void {
+    this.excelService.exportToExcel(this.dataSource.data, 'my_export');
+  }
+
+  exportAsXLSXFiltered(): void {
+    this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
+  }
+
   constructor(
     private existenciasService: ExistenciasService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private excelService: ExporterService
   ) {
     this.dataSource = new MatTableDataSource<Existencias>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }

@@ -14,10 +14,12 @@ import { DetalleticketsService } from '../detalletickets.service';
 import { InsertarDetalleticketsComponent } from 'src/app/detalletickets/insertar-detalletickets/insertar-detalletickets.component';
 import { EditarDetalleticketsComponent } from 'src/app/detalletickets/editar-detalletickets/editar-detalletickets.component';
 
+import { ExporterService } from '../exportaciones/exporter.service';
+
 @Component({
   selector: 'app-punto-de-venta',
   templateUrl: './punto-de-venta.component.html',
-  styleUrls: ['./punto-de-venta.component.css']
+  styleUrls: ['./punto-de-venta.component.css'],
 })
 export class PuntoDeVentaComponent implements OnInit, AfterViewInit {
   // Tickets
@@ -44,7 +46,6 @@ export class PuntoDeVentaComponent implements OnInit, AfterViewInit {
     'DescripcionArticulo',
     'Acciones',
   ];
-  
 
   dataSourceTickets = new MatTableDataSource<tickets>();
   @ViewChild(MatPaginator) paginatorTickets!: MatPaginator;
@@ -56,12 +57,16 @@ export class PuntoDeVentaComponent implements OnInit, AfterViewInit {
   constructor(
     private ticketsService: TicketsService,
     private detalleticketsService: DetalleticketsService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private excelService: ExporterService
   ) {}
 
   ngOnInit() {
     // Configuración del filtro para Tickets
-    this.dataSourceTickets.filterPredicate = (data: tickets, filter: string) => {
+    this.dataSourceTickets.filterPredicate = (
+      data: tickets,
+      filter: string
+    ) => {
       return (
         data.IdCliente.toString().includes(filter) ||
         data.Id.toString().includes(filter)
@@ -69,7 +74,10 @@ export class PuntoDeVentaComponent implements OnInit, AfterViewInit {
     };
 
     // Configuración del filtro para Detalle Tickets
-    this.dataSourceDetalles.filterPredicate = (data: Detalletickets, filter: string) => {
+    this.dataSourceDetalles.filterPredicate = (
+      data: Detalletickets,
+      filter: string
+    ) => {
       return (
         data.Codigo.toLowerCase().includes(filter) ||
         data.Id.toString().includes(filter)
@@ -79,7 +87,10 @@ export class PuntoDeVentaComponent implements OnInit, AfterViewInit {
     // Obtener datos de Tickets
     this.ticketsService.getTickets().subscribe({
       next: (response) => {
-        console.log('Respuesta del servidor (Tickets):', response.response.data);
+        console.log(
+          'Respuesta del servidor (Tickets):',
+          response.response.data
+        );
         if (response.success) {
           this.dataSourceTickets.data = response.response.data;
         } else {
@@ -94,7 +105,10 @@ export class PuntoDeVentaComponent implements OnInit, AfterViewInit {
     // Obtener datos de Detalle Tickets
     this.detalleticketsService.getDepartamentos().subscribe({
       next: (response) => {
-        console.log('Respuesta del servidor (Detalle Tickets):', response.response.data);
+        console.log(
+          'Respuesta del servidor (Detalle Tickets):',
+          response.response.data
+        );
         if (response.success) {
           this.dataSourceDetalles.data = response.response.data;
         } else {
@@ -114,7 +128,25 @@ export class PuntoDeVentaComponent implements OnInit, AfterViewInit {
     // Asignar paginador a Detalle Tickets
     this.dataSourceDetalles.paginator = this.paginatorDetalles;
   }
+  /////Exportacion de Excel
+  exportAsXLSX(): void {
+    this.excelService.exportToExcel(this.dataSourceDetalles.data, 'my_export');
+  }
 
+  exportAsXLSXTickets(): void {
+    this.excelService.exportToExcel(this.dataSourceTickets.data, 'my_export');
+  }
+  exportAsXLSXFiltered(): void {
+    this.excelService.exportToExcel(
+      this.dataSourceDetalles.filteredData,
+      'my_export'
+    );
+    this.excelService.exportToExcel(
+      this.dataSourceTickets.filteredData,
+      'my_export'
+    );
+  }
+  ///////
   // Método para filtrar Tickets
   applyFilterTickets(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -136,7 +168,7 @@ export class PuntoDeVentaComponent implements OnInit, AfterViewInit {
   abrirInsertarModal(elemento: any) {
     const dialogRef = this.dialog.open(InsertarTicketsComponent, {
       width: '550px',
-      data: elemento // Pasar el elemento al componente de la modal si es necesario
+      data: elemento, // Pasar el elemento al componente de la modal si es necesario
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -147,7 +179,7 @@ export class PuntoDeVentaComponent implements OnInit, AfterViewInit {
   abrirInsertarModalDetalle(elemento: any) {
     const dialogRef = this.dialog.open(InsertarDetalleticketsComponent, {
       width: '550px',
-      data: elemento // Pasar el elemento al componente de la modal si es necesario
+      data: elemento, // Pasar el elemento al componente de la modal si es necesario
     });
 
     dialogRef.afterClosed().subscribe((result) => {

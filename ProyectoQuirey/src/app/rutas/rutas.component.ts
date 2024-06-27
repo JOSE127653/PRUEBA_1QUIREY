@@ -8,6 +8,7 @@ import { EditarRutasComponent } from 'src/app/rutas/editar-rutas/editar-rutas.co
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
+import { ExporterService } from '../exportaciones/exporter.service';
 @Component({
   selector: 'app-rutas',
   templateUrl: './rutas.component.html',
@@ -23,18 +24,27 @@ export class RutasComponent {
     'Acciones',
   ];
 
-
-  
-  dataSource = new MatTableDataSource<rutas>;
+  dataSource = new MatTableDataSource<rutas>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+  /// Exportacion a excel
+  exportAsXLSX(): void {
+    this.excelService.exportToExcel(this.dataSource.data, 'my_export');
+  }
 
+  exportAsXLSXFiltered(): void {
+    this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
+  }
 
-  constructor(private rutasService: RutasService, public dialog: MatDialog) {
+  constructor(
+    private rutasService: RutasService,
+    public dialog: MatDialog,
+    private excelService: ExporterService
+  ) {
     this.dataSource = new MatTableDataSource<rutas>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }
 

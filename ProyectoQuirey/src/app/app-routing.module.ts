@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-const routes: Routes = [];
-
 import { LoginComponent } from './login/login.component';
 import { AutocompleteComponent } from './component/autocomplete/autocomplete.component';
+// import { InputDeviceInfo } from './input-device-info/input-device-info.component'; // Asegúrate de importar el componente correspondiente
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' }, // Redirige la ruta base a /login

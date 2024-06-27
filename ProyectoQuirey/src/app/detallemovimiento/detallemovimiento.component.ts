@@ -8,6 +8,7 @@ import { InsertarDetallemovimientoComponent } from './insertar-detallemovimiento
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
+import { ExporterService } from '../exportaciones/exporter.service';
 @Component({
   selector: 'app-detallemovimiento',
   templateUrl: './detallemovimiento.component.html',
@@ -27,19 +28,26 @@ export class DetallemovimientoComponent {
     'Acciones',
   ];
 
-  
-  dataSource = new MatTableDataSource<Detallemovimiento>;
+  dataSource = new MatTableDataSource<Detallemovimiento>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-  
+  /// Exportacion a excel
+  exportAsXLSX(): void {
+    this.excelService.exportToExcel(this.dataSource.data, 'my_export');
+  }
+
+  exportAsXLSXFiltered(): void {
+    this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
+  }
 
   constructor(
     private detallemovimientoService: DetallemovimientoService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private excelService: ExporterService
   ) {
     this.dataSource = new MatTableDataSource<Detallemovimiento>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }

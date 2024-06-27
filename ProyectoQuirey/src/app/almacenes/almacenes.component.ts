@@ -8,6 +8,7 @@ import { EditarAlmacenesComponent } from './editar-almacenes/editar-almacenes.co
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
+import { ExporterService } from '../exportaciones/exporter.service';
 @Component({
   selector: 'app-almacenes',
   templateUrl: './almacenes.component.html',
@@ -24,20 +25,28 @@ export class AlmacenesComponent {
     'Acciones',
   ];
 
- //Paginador
-  dataSource = new MatTableDataSource<Almacenes>;
+  //Paginador
+  dataSource = new MatTableDataSource<Almacenes>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
- //fin de Paginador
+  //fin de Paginador
 
+  exportAsXLSX(): void {
+    this.excelService.exportToExcel(this.dataSource.data, 'my_export');
+  }
+
+  exportAsXLSXFiltered(): void {
+    this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
+  }
 
   constructor(
     private almacenesService: AlmacenesService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private excelService: ExporterService
   ) {
     this.dataSource = new MatTableDataSource<Almacenes>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }
@@ -122,4 +131,3 @@ export class AlmacenesComponent {
     });
   }
 }
-

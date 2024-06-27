@@ -7,6 +7,7 @@ import { InsertarUnidadmedidaComponent } from './insertar-unidadmedida/insertar-
 import { EditarUnidadMedidaComponent } from './editar-unidadmedida/editar-unidadmedida.component';
 import { MatPaginator } from '@angular/material/paginator';
 
+import { ExporterService } from '../exportaciones/exporter.service';
 @Component({
   selector: 'app-unidadmedida',
   templateUrl: './unidadmedida.component.html',
@@ -14,19 +15,26 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class UnidadmedidaComponent {
   displayedColumns: string[] = ['Id', 'Nombre', 'Activo', 'Acciones'];
-  
-    
-  dataSource = new MatTableDataSource<UnidadMedida>;
+
+  dataSource = new MatTableDataSource<UnidadMedida>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+  /// Exportacion a excel
+  exportAsXLSX(): void {
+    this.excelService.exportToExcel(this.dataSource.data, 'my_export');
+  }
 
+  exportAsXLSXFiltered(): void {
+    this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
+  }
   constructor(
     private unidadmedidaService: UnidadmedidaService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private excelService: ExporterService
   ) {
     this.dataSource = new MatTableDataSource<UnidadMedida>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }

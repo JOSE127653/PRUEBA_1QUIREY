@@ -8,6 +8,7 @@ import { EditarPerfilesComponent } from './editar-perfiles/editar-perfiles.compo
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
+import { ExporterService } from '../exportaciones/exporter.service';
 @Component({
   selector: 'app-perfiles',
   templateUrl: './perfiles.component.html',
@@ -22,18 +23,25 @@ export class PerfilesComponent {
     'Acciones',
   ];
 
-
-  dataSource = new MatTableDataSource<Perfiles>;
+  dataSource = new MatTableDataSource<Perfiles>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+  /// Exportacion a excel
+  exportAsXLSX(): void {
+    this.excelService.exportToExcel(this.dataSource.data, 'my_export');
+  }
 
+  exportAsXLSXFiltered(): void {
+    this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
+  }
   constructor(
     private perfilesService: PerfilesService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private excelService: ExporterService
   ) {
     this.dataSource = new MatTableDataSource<Perfiles>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }

@@ -90,14 +90,13 @@
             {{ departamento.IdAlmacen }}
           </td>
         </ng-container>
-       
+
         <ng-container matColumnDef="Cantidad">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Cantidad</th>
           <td mat-cell *matCellDef="let departamento">
             {{ departamento.Cantidad }}
           </td>
         </ng-container>
-        
 
         <!-- <ng-container matColumnDef="Acciones">
           <th mat-header-cell *matHeaderCellDef>Acciones</th>
@@ -122,6 +121,23 @@
         aria-label="Select page of periodic elements"
       >
       </mat-paginator>
+      <h3>Export as XLSX</h3>
+      <div class="container">
+        <button mat-raised-button color="primary" (click)="exportAsXLSX()">
+          Export
+          <mat-icon>trending_down</mat-icon>
+        </button>
+        Enbsp;
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="exportAsXLSXFiltered()"
+        >
+          Export
+          <mat-icon>trending_down</mat-icon>
+          Filtered
+        </button>
+      </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

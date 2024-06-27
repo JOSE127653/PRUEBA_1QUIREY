@@ -8,6 +8,7 @@ import { EditarPuestosComponent } from './editar-puestos/editar-puestos.componen
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
+import { ExporterService } from '../exportaciones/exporter.service';
 @Component({
   selector: 'app-puestos',
   templateUrl: './puestos.component.html',
@@ -23,8 +24,7 @@ export class PuestosComponent {
     'Acciones',
   ];
 
-
-  dataSource = new MatTableDataSource<Puestos>;
+  dataSource = new MatTableDataSource<Puestos>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -32,9 +32,19 @@ export class PuestosComponent {
     this.dataSource.paginator = this.paginator;
   }
 
+  /// Exportacion a excel
+  exportAsXLSX(): void {
+    this.excelService.exportToExcel(this.dataSource.data, 'my_export');
+  }
+
+  exportAsXLSXFiltered(): void {
+    this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
+  }
+
   constructor(
     private puestosService: PuestosService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private excelService: ExporterService
   ) {
     this.dataSource = new MatTableDataSource<Puestos>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }

@@ -8,6 +8,7 @@ import { EditarSucursalsedeComponent } from 'src/app/sucursalsede/editar-sucursa
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
+import { ExporterService } from '../exportaciones/exporter.service';
 @Component({
   selector: 'app-sucursalsede',
   templateUrl: './sucursalsede.component.html',
@@ -24,18 +25,25 @@ export class SucursalsedeComponent {
     'Acciones',
   ];
 
-
-  dataSource = new MatTableDataSource<Sucursalsede>;
+  dataSource = new MatTableDataSource<Sucursalsede>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+  /// Exportacion a excel
+  exportAsXLSX(): void {
+    this.excelService.exportToExcel(this.dataSource.data, 'my_export');
+  }
 
+  exportAsXLSXFiltered(): void {
+    this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
+  }
   constructor(
     private ticketsService: SucursalsedeService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private excelService: ExporterService
   ) {
     this.dataSource = new MatTableDataSource<Sucursalsede>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }

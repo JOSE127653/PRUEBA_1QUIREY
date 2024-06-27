@@ -9,6 +9,7 @@ import { EditarPersonasComponent } from './editar-personas/editar-personas.compo
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
+import { ExporterService } from '../exportaciones/exporter.service';
 @Component({
   selector: 'app-personas',
   templateUrl: './personas.component.html',
@@ -28,19 +29,27 @@ export class PersonasComponent {
     'Sucursal',
     'Acciones',
   ];
- 
 
-  dataSource = new MatTableDataSource<Personas>;
+  dataSource = new MatTableDataSource<Personas>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+  /// Exportacion a excel
+  exportAsXLSX(): void {
+    this.excelService.exportToExcel(this.dataSource.data, 'my_export');
+  }
+
+  exportAsXLSXFiltered(): void {
+    this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
+  }
 
   constructor(
     private personasService: PersonasService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private excelService: ExporterService
   ) {
     this.dataSource = new MatTableDataSource<Personas>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }

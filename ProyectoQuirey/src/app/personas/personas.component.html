@@ -103,7 +103,9 @@
           </td>
         </ng-container>
         <ng-container matColumnDef="UsuarioActualiza">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>UsuarioActualiza</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            UsuarioActualiza
+          </th>
           <td mat-cell *matCellDef="let departamento">
             {{ departamento.UsuarioActualiza }}
           </td>
@@ -115,17 +117,22 @@
           </td>
         </ng-container>
         <ng-container matColumnDef="FechaActualiza">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>FechaActualiza</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            FechaActualiza
+          </th>
           <td mat-cell *matCellDef="let departamento">
             {{ departamento.FechaActualiza }}
           </td>
         </ng-container>
         <ng-container matColumnDef="FechaRegistro">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>FechaRegistro</th>
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            FechaRegistro
+          </th>
           <td mat-cell *matCellDef="let departamento">
             {{ departamento.FechaRegistro }}
           </td>
-        </ng-container>    <ng-container matColumnDef="Sucursal">
+        </ng-container>
+        <ng-container matColumnDef="Sucursal">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Sucursal</th>
           <td mat-cell *matCellDef="let departamento">
             {{ departamento.Sucursal }}
@@ -157,18 +164,23 @@
         aria-label="Select page of periodic elements"
       >
       </mat-paginator>
-    </div>
-  </mat-sidenav-content>
-
-  <mat-sidenav-content>
-    <div>
-      <table>
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row
-          class="mat-row"
-          *matRowDef="let row; columns: displayedColumns"
-        ></mat-row>
-      </table>
+      <h3>Export as XLSX</h3>
+      <div class="container">
+        <button mat-raised-button color="primary" (click)="exportAsXLSX()">
+          Export
+          <mat-icon>trending_down</mat-icon>
+        </button>
+        Enbsp;
+        <button
+          mat-raised-button
+          color="accent"
+          (click)="exportAsXLSXFiltered()"
+        >
+          Export
+          <mat-icon>trending_down</mat-icon>
+          Filtered
+        </button>
+      </div>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

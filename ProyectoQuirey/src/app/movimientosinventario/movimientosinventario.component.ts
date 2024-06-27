@@ -10,6 +10,7 @@ import { EditarMovimientosinventarioComponent } from './editar-movimientosinvent
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
+import { ExporterService } from '../exportaciones/exporter.service';
 @Component({
   selector: 'app-movimientosinventario',
   templateUrl: './movimientosinventario.component.html',
@@ -29,19 +30,27 @@ export class MovimientosinventarioComponent {
     'Tipo_Descripcion',
     'Acciones',
   ];
- 
 
-  dataSource = new MatTableDataSource<MovimientosInventario>;
+  dataSource = new MatTableDataSource<MovimientosInventario>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+  /// Exportacion a excel
+  exportAsXLSX(): void {
+    this.excelService.exportToExcel(this.dataSource.data, 'my_export');
+  }
+
+  exportAsXLSXFiltered(): void {
+    this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
+  }
 
   constructor(
     private movimientosinventarioService: MovimientosinventarioService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private excelService: ExporterService
   ) {
     this.dataSource = new MatTableDataSource<MovimientosInventario>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }

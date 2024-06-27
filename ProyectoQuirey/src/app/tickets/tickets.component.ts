@@ -8,6 +8,7 @@ import { EditarTicketsComponent } from 'src/app/tickets/editar-tickets/editar-ti
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
+import { ExporterService } from '../exportaciones/exporter.service';
 @Component({
   selector: 'app-tickets',
   templateUrl: './tickets.component.html',
@@ -25,8 +26,7 @@ export class TicketsComponent {
     'Acciones',
   ];
 
-  
-  dataSource = new MatTableDataSource<tickets>;
+  dataSource = new MatTableDataSource<tickets>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -34,9 +34,19 @@ export class TicketsComponent {
     this.dataSource.paginator = this.paginator;
   }
 
+  /// Exportacion a excel
+  exportAsXLSX(): void {
+    this.excelService.exportToExcel(this.dataSource.data, 'my_export');
+  }
+
+  exportAsXLSXFiltered(): void {
+    this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
+  }
+
   constructor(
     private ticketsService: TicketsService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private excelService: ExporterService
   ) {
     this.dataSource = new MatTableDataSource<tickets>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }
