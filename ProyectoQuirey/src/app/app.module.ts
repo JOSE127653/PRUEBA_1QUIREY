@@ -118,6 +118,7 @@ import { InsertarUnidadmedidaComponent } from './unidadmedida/insertar-unidadmed
 import { InicioComponent } from './inicio/inicio.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PuntoDeVentaComponent } from './punto-de-venta/punto-de-venta.component';
+import { MovimientosGENERALComponent } from './movimientos-general/movimientos-general.component';
 
 const appRoutes: Routes = [
   //{path:'controlPanel', component:ControlPanelAlmacenesComponent},
@@ -160,6 +161,7 @@ const appRoutes: Routes = [
   //Falta menu
   { path: 'unidadmedida', component: UnidadmedidaComponent },
   { path: 'puntodeventa', component: PuntoDeVentaComponent },
+  { path: 'MOVIMIENTOS', component: MovimientosGENERALComponent },
 ];
 
 @NgModule({
@@ -253,6 +255,7 @@ const appRoutes: Routes = [
 
     InicioComponent,
     PuntoDeVentaComponent,
+    MovimientosGENERALComponent,
   ],
   imports: [
     HttpClientModule,

@@ -20,6 +20,7 @@ export class InsertarMovimientosinventarioComponent {
   idalmacenDepartamento: number = 0;
   idalmaceneslistDepartamento: number = 0;
   usuarioactualizaDepartamento: number = 1;
+  idDestinoDepartamento: number = 0;
 
   constructor(
     public dialogRef: MatDialogRef<InsertarMovimientosinventarioComponent>,
@@ -66,6 +67,7 @@ export class InsertarMovimientosinventarioComponent {
       IdAlmacen: this.idalmaceneslistDepartamento,
       IdAlmacenes: this.idalmaceneslistDepartamento,
       UsuarioActualiza: this.usuarioactualizaDepartamento,
+      IdDestino: this.idDestinoDepartamento,
       // ...otros campos si los hay
     };
 

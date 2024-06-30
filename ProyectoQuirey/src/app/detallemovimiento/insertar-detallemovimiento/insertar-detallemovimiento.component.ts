@@ -42,9 +42,9 @@ export class InsertarDetallemovimientoComponent {
 
     const nuevoDepartamento = {
       Codigo: this.codigoDepartamento,
-      Idmovimiento: this.idMovimientoDepartamento,
+      IdMovimiento: this.idMovimientoDepartamento,
       Cantidad: this.cantidadDepartamento,
-      costo: this.costoDepartamento,
+      Costo: this.costoDepartamento,
       UsuarioActualiza: this.usuarioactualizaDepartamento,
       // ...otros campos si los hay
     };

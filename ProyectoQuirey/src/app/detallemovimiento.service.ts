@@ -16,17 +16,18 @@ export class DetallemovimientoService {
   }
 
 // Método para insertar un nuevo departamento
-insertarDepartamento(departamentoData: { Codigo: string; Idmovimiento: number; Cantidad: number; costo: number; UsuarioActualiza: number }): Observable<ApiResponse> {
+insertarDepartamento
+(departamentoData: { Codigo: string; IdMovimiento: number; Cantidad: number; Costo: number; UsuarioActualiza: number }): Observable<ApiResponse> {
   // El 'nombre' es la única parte variable que viene del formulario
   // 'activo' y 'usuario' son valores fijos en este ejemplo
   const body = {
-    codigo: departamentoData.Codigo,
-    idmovimiento: departamentoData.Idmovimiento,
-    cantidad: departamentoData.Cantidad,
-    costo: departamentoData.costo,// Valor por defecto si no se proporciona
-    usuarioactualiza: departamentoData.UsuarioActualiza || 0,// Valor por defecto si no se proporciona
+    Codigo: departamentoData.Codigo,
+    IdMovimiento: departamentoData.IdMovimiento,
+    Cantidad: departamentoData.Cantidad,
+    Costo: departamentoData.Costo,// Valor por defecto si no se proporciona
+    UsuarioActualiza: departamentoData.UsuarioActualiza || 0,// Valor por defecto si no se proporciona
   };
-  return this.http.post<ApiResponse>(`${this.apiUrl}/InsertDetalleMovimiento`, body);
+  return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
   }
 
   eliminarDepartamento(Id: number): Observable<any> {
@@ -37,7 +38,7 @@ insertarDepartamento(departamentoData: { Codigo: string; Idmovimiento: number; C
   actualizarDepartamento(departamentoData: Detallemovimiento): Observable<ApiResponse> {
     const body ={
       id: departamentoData.Id,
-      idmovimiento: departamentoData.IdMovimiento,
+      IdMovimiento: departamentoData.IdMovimiento,
       codigo: departamentoData.Codigo,
       cantidad: departamentoData.Cantidad,
       costo: departamentoData.Costo,

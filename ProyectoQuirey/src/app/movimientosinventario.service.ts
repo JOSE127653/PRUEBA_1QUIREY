@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {
-  ApiResponse,
-  MovimientosInventario,
-} from './Models/movimientosinventario.models';
-
+import {ApiResponse,MovimientosInventario,} from './Models/movimientosinventario.models';
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
@@ -13,6 +10,8 @@ export class MovimientosinventarioService {
   private apiUrl = 'http://localhost:5020/api/MovimientosInventario';
 
   constructor(private http: HttpClient) {}
+
+
 
   getDepartamentos(IdTipoMov?: number): Observable<ApiResponse> {
     const requestBody = {
@@ -29,13 +28,15 @@ export class MovimientosinventarioService {
     IdTipoMov: number;
     IdAlmacen: number;
     UsuarioActualiza: number;
+    IdDestino: number;
   }): Observable<ApiResponse> {
     const body = {
       idtipomov: departamentoData.IdTipoMov,
       idalmacen: departamentoData.IdAlmacen,
       usuarioactualiza: departamentoData.UsuarioActualiza,
+      IdDestino: departamentoData.IdDestino
     };
-    return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body);
+    return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body );
   }
 
   eliminarDepartamento(Id: number): Observable<ApiResponse> {
