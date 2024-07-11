@@ -9,7 +9,9 @@ export interface login {
     StatusCode: number;
     success: boolean;
     fecha: string;
-    message: string;
+    
+    token?: string;
+    message?: string;
     response: {
       data: login [];
     };

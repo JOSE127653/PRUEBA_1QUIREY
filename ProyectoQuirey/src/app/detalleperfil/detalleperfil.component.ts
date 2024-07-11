@@ -9,6 +9,9 @@ import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
 import { ExporterService } from '../exportaciones/exporter.service';
+
+import { Router } from '@angular/router';
+import{ LoginService } from '../login.service';
 @Component({
   selector: 'app-detalleperfil',
   templateUrl: './detalleperfil.component.html',
@@ -40,11 +43,16 @@ export class DetalleperfilComponent {
   exportAsXLSXFiltered(): void {
     this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
   }
-
+  logout() {
+    this.LoginService.logout();
+    this.router.navigate(['/login']);
+  }
   constructor(
     private detalleperfilService: DetalleperfilService,
     public dialog: MatDialog,
-    private excelService: ExporterService
+    private excelService: ExporterService,
+    private LoginService: LoginService,
+    private router: Router,
   ) {
     this.dataSource = new MatTableDataSource<DetallePerfil>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }

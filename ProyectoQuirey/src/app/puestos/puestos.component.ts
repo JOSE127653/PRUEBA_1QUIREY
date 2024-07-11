@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
 import { ExporterService } from '../exportaciones/exporter.service';
+import { Router } from '@angular/router';
+import{ LoginService } from '../login.service';
 @Component({
   selector: 'app-puestos',
   templateUrl: './puestos.component.html',
@@ -27,7 +29,10 @@ export class PuestosComponent {
   dataSource = new MatTableDataSource<Puestos>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
+  logout() {
+    this.LoginService.logout();
+    this.router.navigate(['/login']);
+  }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
@@ -44,7 +49,8 @@ export class PuestosComponent {
   constructor(
     private puestosService: PuestosService,
     public dialog: MatDialog,
-    private excelService: ExporterService
+    private excelService: ExporterService ,private LoginService: LoginService,
+    private router: Router,
   ) {
     this.dataSource = new MatTableDataSource<Puestos>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }

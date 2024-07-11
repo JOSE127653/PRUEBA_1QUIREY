@@ -26,7 +26,9 @@
           <a class="letrasBarra" routerLink="/sucursalsede">Sucursal Sede</a>
           <a class="letrasBarra" routerLink="/usuarios">Usuarios</a>
           <a class="letrasBarra" routerLink="/puntodeventa">puntodeventa</a>
-          <a class="letrasBarra" routerLink="/login">cerrar sesion</a>
+          <div >
+            <button (click)="logout()">Cerrar Sesión</button>
+          </div>
         </mat-nav-list>
       </div>
     </mat-sidenav>
@@ -58,7 +60,7 @@
       </div>
       
       <div style="border: 1px solid black; padding: 10px; width: fit-content;">
-        <p *ngIf="data !== null">El valor de data es: {{ data }}</p>
+        <p *ngIf="data !== data">El valor de data es: {{ data }}</p>
       </div>
       
   
@@ -224,14 +226,7 @@
               {{ departamento.Codigo }}
             </td>
           </ng-container>
-          <ng-container matColumnDef="IdMovimiento">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
-              IdMovimiento
-            </th>
-            <td mat-cell *matCellDef="let departamento">
-              {{ departamento.IdMovimiento }}
-            </td>
-          </ng-container>
+          
           <ng-container matColumnDef="Cantidad">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Cantidad</th>
             <td mat-cell *matCellDef="let departamento">
@@ -266,12 +261,7 @@
               {{ departamento.UsuarioActualiza }}
             </td>
           </ng-container>
-          <ng-container matColumnDef="Descripcion">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripcion</th>
-            <td mat-cell *matCellDef="let departamento">
-              {{ departamento.Descripcion }}
-            </td>
-          </ng-container>
+    
   
           <ng-container matColumnDef="Acciones">
             <th mat-header-cell *matHeaderCellDef>Acciones</th>

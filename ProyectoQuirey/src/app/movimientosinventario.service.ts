@@ -36,7 +36,15 @@ export class MovimientosinventarioService {
       usuarioactualiza: departamentoData.UsuarioActualiza,
       IdDestino: departamentoData.IdDestino
     };
-    return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body );
+    return this.http.post<ApiResponse>(`${this.apiUrl}/Insert`, body).pipe(
+      map(response => ({
+        StatusCode: response.StatusCode,
+        success: response.success,
+        fecha: response.fecha,
+        message: response.message,
+        response: { data: response.response.data } // Aquí extraemos solo el campo 'data'
+      }))
+    );
   }
 
   eliminarDepartamento(Id: number): Observable<ApiResponse> {

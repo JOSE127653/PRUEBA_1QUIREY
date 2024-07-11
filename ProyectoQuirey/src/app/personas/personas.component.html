@@ -27,7 +27,9 @@
         <a class="letrasBarra" routerLink="/rutas">Rutas</a>
         <a class="letrasBarra" routerLink="/sucursalsede">Sucursal Sede</a>
         <a class="letrasBarra" routerLink="/usuarios">Usuarios</a>
-        <a class="letrasBarra" routerLink="/login">cerrar sesion</a>
+        <div >
+          <button (click)="logout()">Cerrar Sesión</button>
+        </div>
       </mat-nav-list>
     </div>
   </mat-sidenav>

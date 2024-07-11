@@ -7,8 +7,9 @@ import { InsertarAlmacenesComponent } from './insertar-almacenes/insertar-almace
 import { EditarAlmacenesComponent } from './editar-almacenes/editar-almacenes.component';
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
-
+import{ LoginService } from '../login.service';
 import { ExporterService } from '../exportaciones/exporter.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-almacenes',
   templateUrl: './almacenes.component.html',
@@ -24,7 +25,7 @@ export class AlmacenesComponent {
     'FechaActualiza',
     'Acciones',
   ];
-
+  currentUser: string | null = null;
   //Paginador
   dataSource = new MatTableDataSource<Almacenes>();
 
@@ -46,7 +47,10 @@ export class AlmacenesComponent {
   constructor(
     private almacenesService: AlmacenesService,
     public dialog: MatDialog,
-    private excelService: ExporterService
+    private excelService: ExporterService,
+    private LoginService: LoginService,
+    private router: Router,
+    
   ) {
     this.dataSource = new MatTableDataSource<Almacenes>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }
@@ -71,6 +75,7 @@ export class AlmacenesComponent {
         // Manejar el error de la solicitud
       },
     });
+  
   }
   // Método para realizar el filtrado
   applyFilter(event: Event) {
@@ -129,5 +134,9 @@ export class AlmacenesComponent {
       if (result) {
       }
     });
+  }
+  logout() {
+    this.LoginService.logout();
+    this.router.navigate(['/login']);
   }
 }
