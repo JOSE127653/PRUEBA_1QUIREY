@@ -8,6 +8,8 @@ import { EditarUnidadMedidaComponent } from './editar-unidadmedida/editar-unidad
 import { MatPaginator } from '@angular/material/paginator';
 
 import { ExporterService } from '../exportaciones/exporter.service';
+import { Router } from '@angular/router';
+import{ LoginService } from '../login.service';
 @Component({
   selector: 'app-unidadmedida',
   templateUrl: './unidadmedida.component.html',
@@ -19,7 +21,10 @@ export class UnidadmedidaComponent {
   dataSource = new MatTableDataSource<UnidadMedida>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
+  logout() {
+    this.LoginService.logout();
+    this.router.navigate(['/login']);
+  }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
@@ -34,7 +39,8 @@ export class UnidadmedidaComponent {
   constructor(
     private unidadmedidaService: UnidadmedidaService,
     public dialog: MatDialog,
-    private excelService: ExporterService
+    private excelService: ExporterService ,private LoginService: LoginService,
+    private router: Router,
   ) {
     this.dataSource = new MatTableDataSource<UnidadMedida>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }

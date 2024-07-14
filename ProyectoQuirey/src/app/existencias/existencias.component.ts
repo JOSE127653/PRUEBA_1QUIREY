@@ -9,6 +9,9 @@ import { EditarExistenciasComponent } from './editar-existencias/editar-existenc
 import { MatPaginator } from '@angular/material/paginator';
 
 import { ExporterService } from '../exportaciones/exporter.service';
+
+import { Router } from '@angular/router';
+import{ LoginService } from '../login.service';
 @Component({
   selector: 'app-existencias',
   templateUrl: './existencias.component.html',
@@ -33,11 +36,16 @@ export class ExistenciasComponent {
   exportAsXLSXFiltered(): void {
     this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
   }
-
+  logout() {
+    this.LoginService.logout();
+    this.router.navigate(['/login']);
+  }
   constructor(
     private existenciasService: ExistenciasService,
     public dialog: MatDialog,
-    private excelService: ExporterService
+    private excelService: ExporterService,
+    private LoginService: LoginService,
+    private router: Router,
   ) {
     this.dataSource = new MatTableDataSource<Existencias>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }

@@ -15,7 +15,8 @@ import { InsertarDetalleticketsComponent } from 'src/app/detalletickets/insertar
 import { EditarDetalleticketsComponent } from 'src/app/detalletickets/editar-detalletickets/editar-detalletickets.component';
 
 import { ExporterService } from '../exportaciones/exporter.service';
-
+import { Router } from '@angular/router';
+import{ LoginService } from '../login.service';
 @Component({
   selector: 'app-punto-de-venta',
   templateUrl: './punto-de-venta.component.html',
@@ -58,9 +59,13 @@ export class PuntoDeVentaComponent implements OnInit, AfterViewInit {
     private ticketsService: TicketsService,
     private detalleticketsService: DetalleticketsService,
     public dialog: MatDialog,
-    private excelService: ExporterService
+    private excelService: ExporterService ,private LoginService: LoginService,
+    private router: Router,
   ) {}
-
+  logout() {
+    this.LoginService.logout();
+    this.router.navigate(['/login']);
+  }
   ngOnInit() {
     // Configuración del filtro para Tickets
     this.dataSourceTickets.filterPredicate = (

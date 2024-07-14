@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
 import { ExporterService } from '../exportaciones/exporter.service';
+import { Router } from '@angular/router';
+import{ LoginService } from '../login.service';
 @Component({
   selector: 'app-clientes',
   templateUrl: './clientes.component.html',
@@ -44,9 +46,15 @@ export class ClientesComponent {
   constructor(
     private clientesService: ClientesService,
     public dialog: MatDialog,
-    private excelService: ExporterService
+    private excelService: ExporterService,
+    private LoginService: LoginService,
+    private router: Router,
   ) {
     this.dataSource = new MatTableDataSource<clientes>(); // Inicializa dataSource como una instancia de MatTableDataSource
+  }
+  logout() {
+    this.LoginService.logout();
+    this.router.navigate(['/login']);
   }
 
   ngOnInit() {

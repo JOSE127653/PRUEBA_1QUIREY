@@ -8,6 +8,10 @@ import { EditarArticulosComponent } from './editar-articulos/editar-articulos.co
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
+
+import { Router } from '@angular/router';
+import{ LoginService } from '../login.service';
+
 import { ExporterService } from '../exportaciones/exporter.service';
 @Component({
   selector: 'app-articulos',
@@ -52,9 +56,18 @@ export class ArticulosComponent {
     private articulosService: ArticulosService,
     public dialog: MatDialog,
     private excelService: ExporterService,
+
     private pdfService: ExporterService
+
+    private LoginService: LoginService,
+    private router: Router,
+
   ) {
     this.dataSource = new MatTableDataSource<Articulos>(); // Inicializa dataSource como una instancia de MatTableDataSource
+  }
+  logout() {
+    this.LoginService.logout();
+    this.router.navigate(['/login']);
   }
 
   ngOnInit() {

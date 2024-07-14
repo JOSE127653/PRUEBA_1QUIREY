@@ -8,6 +8,8 @@ import { EditarEmpleadosComponent } from 'src/app/empleados/editar-empleados/edi
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
+import { Router } from '@angular/router';
+import{ LoginService } from '../login.service';
 import { ExporterService } from '../exportaciones/exporter.service';
 @Component({
   selector: 'app-empleados',
@@ -30,7 +32,10 @@ export class EmpleadosComponent {
   dataSource = new MatTableDataSource<empleados>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
+  logout() {
+    this.LoginService.logout();
+    this.router.navigate(['/login']);
+  }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
@@ -46,7 +51,9 @@ export class EmpleadosComponent {
   constructor(
     private ticketsService: EmpleadosService,
     public dialog: MatDialog,
-    private excelService: ExporterService
+    private excelService: ExporterService,
+    private LoginService: LoginService,
+    private router: Router,
   ) {
     this.dataSource = new MatTableDataSource<empleados>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }

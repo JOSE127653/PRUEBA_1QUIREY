@@ -17,6 +17,8 @@ import { InsertarDetallemovimientoComponent } from '../detallemovimiento/inserta
 import { ExporterService } from '../exportaciones/exporter.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
+import{ LoginService } from '../login.service';
 
 @Component({
   selector: 'app-movimientos-general',
@@ -30,14 +32,14 @@ export class MovimientosGENERALComponent implements OnInit, AfterViewInit {
       'Tipo_Descripcion', 'Acciones'
     ];
     dataSourceInventario = new MatTableDataSource<MovimientosInventario>();
-    @ViewChild('paginatorInventario') paginatorInventario!: MatPaginator;
+    @ViewChild(MatPaginator) paginatorInventario!: MatPaginator;
   
     displayedColumnsDetalle: string[] = [
-      'Id', 'Codigo', 'IdMovimiento', 'Cantidad', 'Costo', 'Estatus', 
-      'FechaActualiza', 'UsuarioActualiza', 'Descripcion', 'Acciones'
+      'Id', 'Codigo', 'Cantidad', 'Costo', 'Estatus', 
+      'FechaActualiza', 'UsuarioActualiza', 'Acciones'
     ];
     dataSourceDetalle = new MatTableDataSource<Detallemovimiento>();
-    @ViewChild('paginatorDetalle') paginatorDetalle!: MatPaginator;
+    @ViewChild(MatPaginator) paginatorDetalle!: MatPaginator;
 
     data: number | null = null;
 
@@ -47,9 +49,13 @@ export class MovimientosGENERALComponent implements OnInit, AfterViewInit {
       private movimientosinventarioService: MovimientosinventarioService,
       private detallemovimientoService: DetallemovimientoService,
       public dialog: MatDialog,
-      private excelService: ExporterService
+      private excelService: ExporterService ,private LoginService: LoginService,
+      private router: Router,
     ) {}
-  
+    logout() {
+      this.LoginService.logout();
+      this.router.navigate(['/login']);
+    }
     ngOnInit() {
       this.dataSourceInventario.filterPredicate = (
         data: MovimientosInventario, filter: string
@@ -80,8 +86,10 @@ export class MovimientosGENERALComponent implements OnInit, AfterViewInit {
         },
         error: (error) => console.error('Error al obtener datos de detalle:', error)
       });
+
+      
     }
-  
+ 
   
   
   

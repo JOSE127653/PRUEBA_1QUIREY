@@ -28,14 +28,16 @@
           <h2>Iniciar sesión</h2>
           <br />
           <form>
-            <input type="text" placeholder="Usuario" required />
-            <input type="password" placeholder="Contraseña" required />
+           
+            <input id="username"matInput placeholder="Usuario" [(ngModel)]="username" name="username" required />
+            <input id="password"type="password"matInput placeholder="************" [(ngModel)]="userpassword" name="userpassword" required />
 
             
 
-            <button type="submit" class="letrasBarra" routerLink="/inicio">
+            <button (click)="login()"  class="letrasBarra" >
               ENTRAR
             </button>
+            
           </form>
         </div>
 

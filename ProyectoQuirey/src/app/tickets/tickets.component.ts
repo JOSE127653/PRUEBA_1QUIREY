@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 
 import { ExporterService } from '../exportaciones/exporter.service';
+import { Router } from '@angular/router';
+import{ LoginService } from '../login.service';
 @Component({
   selector: 'app-tickets',
   templateUrl: './tickets.component.html',
