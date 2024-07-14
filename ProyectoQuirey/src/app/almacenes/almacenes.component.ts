@@ -7,8 +7,8 @@ import { InsertarAlmacenesComponent } from './insertar-almacenes/insertar-almace
 import { EditarAlmacenesComponent } from './editar-almacenes/editar-almacenes.component';
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
-
 import { ExporterService } from '../exportaciones/exporter.service';
+
 @Component({
   selector: 'app-almacenes',
   templateUrl: './almacenes.component.html',
@@ -43,10 +43,14 @@ export class AlmacenesComponent {
     this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
   }
 
+  createPdf(): void {
+    this.pdfService.createPdf(this.dataSource.data);
+  }
   constructor(
     private almacenesService: AlmacenesService,
     public dialog: MatDialog,
-    private excelService: ExporterService
+    private excelService: ExporterService,
+    private pdfService: ExporterService
   ) {
     this.dataSource = new MatTableDataSource<Almacenes>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }

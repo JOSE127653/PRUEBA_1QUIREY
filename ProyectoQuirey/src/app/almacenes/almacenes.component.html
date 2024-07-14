@@ -11,16 +11,20 @@
         />
         <a class="letrasBarra" routerLink="/inicio">inicio</a>
         <a class="letrasBarra" routerLink="/articulos">Articulos</a>
-        <a class="letrasBarra" routerLink="/categoriamodulos">Categoria de Modulos</a >
-        <a class="letrasBarra" routerLink="/unidadmedida">Unidad Medida</a >
+        <a class="letrasBarra" routerLink="/categoriamodulos"
+          >Categoria de Modulos</a
+        >
+        <a class="letrasBarra" routerLink="/unidadmedida">Unidad Medida</a>
         <a class="letrasBarra" routerLink="/clientes">Clientes</a>
         <a class="letrasBarra" routerLink="/detalleperfil">Detalle de Perfil</a>
         <a class="letrasBarra" routerLink="/empleados">Empleados</a>
         <a class="letrasBarra" routerLink="/existencias">Existencias</a>
         <a class="letrasBarra" routerLink="/modulos">Modulos</a>
         <a class="letrasBarra" routerLink="/modulosusuario">Modulos Usuario</a>
-        <a class="letrasBarra" routerLink="/MOVIMIENTOS">Movimientosde Inventario</a >
-        <a class="letrasBarra" routerLink="/puntodeventa">punto de venta</a >
+        <a class="letrasBarra" routerLink="/MOVIMIENTOS"
+          >Movimientosde Inventario</a
+        >
+        <a class="letrasBarra" routerLink="/puntodeventa">punto de venta</a>
         <a class="letrasBarra" routerLink="/perfiles">Perfiles</a>
         <a class="letrasBarra" routerLink="/personas">Personas</a>
         <a class="letrasBarra" routerLink="/puestos">Puestos</a>
@@ -63,11 +67,14 @@
         Añadir Almacen
       </button>
     </div>
+
     <div class="TabladeDatos">
       <table mat-table [dataSource]="dataSource" matSort>
         <ng-container matColumnDef="Id">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-          <td mat-cell *matCellDef="let departamento">{{ departamento.Id }}</td>
+          <td mat-cell *matCellDef="let departamento">
+            {{ departamento.Id }}
+          </td>
         </ng-container>
         <ng-container matColumnDef="Nombre">
           <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
@@ -145,6 +152,12 @@
           Export
           <mat-icon>trending_down</mat-icon>
           Filtered
+        </button>
+
+        <button mat-raised-button color="accent" (click)="createPdf()">
+          Export
+          <mat-icon>trending_down</mat-icon>
+          Crear PDF
         </button>
       </div>
     </div>

@@ -44,10 +44,15 @@ export class ArticulosComponent {
     this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
   }
 
+  createPdf(): void {
+    this.pdfService.createPdf(this.dataSource.data);
+  }
+
   constructor(
     private articulosService: ArticulosService,
     public dialog: MatDialog,
-    private excelService: ExporterService
+    private excelService: ExporterService,
+    private pdfService: ExporterService
   ) {
     this.dataSource = new MatTableDataSource<Articulos>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }
