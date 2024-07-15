@@ -29,10 +29,7 @@ export class PuestosComponent {
   dataSource = new MatTableDataSource<Puestos>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  logout() {
-    this.LoginService.logout();
-    this.router.navigate(['/login']);
-  }
+ 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }

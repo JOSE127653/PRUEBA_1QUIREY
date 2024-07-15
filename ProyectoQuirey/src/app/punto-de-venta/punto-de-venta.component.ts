@@ -62,10 +62,7 @@ export class PuntoDeVentaComponent implements OnInit, AfterViewInit {
     private excelService: ExporterService ,private LoginService: LoginService,
     private router: Router,
   ) {}
-  logout() {
-    this.LoginService.logout();
-    this.router.navigate(['/login']);
-  }
+ 
   ngOnInit() {
     // Configuración del filtro para Tickets
     this.dataSourceTickets.filterPredicate = (

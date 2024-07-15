@@ -65,10 +65,7 @@ export class ArticulosComponent {
   ) {
     this.dataSource = new MatTableDataSource<Articulos>(); // Inicializa dataSource como una instancia de MatTableDataSource
   }
-  logout() {
-    this.LoginService.logout();
-    this.router.navigate(['/login']);
-  }
+
 
   ngOnInit() {
     this.dataSource.filterPredicate = (data: Articulos, filter: string) => {

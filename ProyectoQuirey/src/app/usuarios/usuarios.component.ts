@@ -30,10 +30,7 @@ export class UsuariosComponent {
   dataSource = new MatTableDataSource<Usuario>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  logout() {
-    this.LoginService.logout();
-    this.router.navigate(['/login']);
-  }
+ 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
