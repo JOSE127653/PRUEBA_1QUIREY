@@ -42,7 +42,7 @@ export class MovimientosGENERALComponent implements OnInit, AfterViewInit {
     @ViewChild(MatPaginator) paginatorDetalle!: MatPaginator;
 
     data: number | null = null;
-
+    datosCargados: boolean = false;
 
   
     constructor(
@@ -52,10 +52,7 @@ export class MovimientosGENERALComponent implements OnInit, AfterViewInit {
       private excelService: ExporterService ,private LoginService: LoginService,
       private router: Router,
     ) {}
-    logout() {
-      this.LoginService.logout();
-      this.router.navigate(['/login']);
-    }
+  
     ngOnInit() {
       this.dataSourceInventario.filterPredicate = (
         data: MovimientosInventario, filter: string
@@ -214,5 +211,12 @@ export class MovimientosGENERALComponent implements OnInit, AfterViewInit {
           error: (error) => console.error('Error al eliminar el detalle:', error)
         });
       }
+      
+    }
+    cargarDatos(elemento: any) {
+     
+  
+      this.datosCargados = true;
+      console.log(elemento);
     }
   }

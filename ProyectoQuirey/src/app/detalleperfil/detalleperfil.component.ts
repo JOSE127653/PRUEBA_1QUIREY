@@ -43,10 +43,7 @@ export class DetalleperfilComponent {
   exportAsXLSXFiltered(): void {
     this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
   }
-  logout() {
-    this.LoginService.logout();
-    this.router.navigate(['/login']);
-  }
+  
   constructor(
     private detalleperfilService: DetalleperfilService,
     public dialog: MatDialog,

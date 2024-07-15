@@ -36,10 +36,7 @@ export class ExistenciasComponent {
   exportAsXLSXFiltered(): void {
     this.excelService.exportToExcel(this.dataSource.filteredData, 'my_export');
   }
-  logout() {
-    this.LoginService.logout();
-    this.router.navigate(['/login']);
-  }
+
   constructor(
     private existenciasService: ExistenciasService,
     public dialog: MatDialog,

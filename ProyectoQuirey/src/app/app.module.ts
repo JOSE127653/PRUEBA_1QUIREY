@@ -114,11 +114,14 @@ import { UnidadmedidaComponent } from './unidadmedida/unidadmedida.component';
 import { ControlPanelUnidadmedidaComponent } from './unidadmedida/control-panel-unidadmedida/control-panel-unidadmedida.component';
 import { EditarUnidadMedidaComponent } from './unidadmedida/editar-unidadmedida/editar-unidadmedida.component';
 import { InsertarUnidadmedidaComponent } from './unidadmedida/insertar-unidadmedida/insertar-unidadmedida.component';
-
+import { AuthModule } from '@auth0/auth0-angular';
 import { InicioComponent } from './inicio/inicio.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { PuntoDeVentaComponent } from './punto-de-venta/punto-de-venta.component';
 import { MovimientosGENERALComponent } from './movimientos-general/movimientos-general.component';
+import { LoginButtonComponent } from './components/login-button/login-button.component';
+import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
+import { AuthenticationButtonComponent } from './components/authentication-button/authentication-button.component';
 
 const appRoutes: Routes = [
   //{path:'controlPanel', component:ControlPanelAlmacenesComponent},
@@ -256,9 +259,12 @@ const appRoutes: Routes = [
     InicioComponent,
     PuntoDeVentaComponent,
     MovimientosGENERALComponent,
+    LoginButtonComponent,
+    LogoutButtonComponent,
+    AuthenticationButtonComponent,
   ],
   imports: [
-    HttpClientModule,
+    HttpClientModule, AuthModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

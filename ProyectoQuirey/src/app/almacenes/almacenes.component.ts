@@ -135,8 +135,5 @@ export class AlmacenesComponent {
       }
     });
   }
-  logout() {
-    this.LoginService.logout();
-    this.router.navigate(['/login']);
-  }
+ 
 }
